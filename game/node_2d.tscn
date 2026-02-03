@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0d5ej02h6kx" path="res://Assets/TristanGhost.png" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://d3dys1s806776" path="res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/Tileset Spring.png" id="2_epypp"]
+[ext_resource type="Script" uid="uid://c7lr7edo8rp3j" path="res://scripts/investigator.gd" id="3_epypp"]
 
 [sub_resource type="Animation" id="Animation_0hol4"]
 resource_name = "GhostMoving"
@@ -251,6 +252,9 @@ texture = ExtResource("2_epypp")
 [sub_resource type="TileSet" id="TileSet_d21ai"]
 sources/0 = SubResource("TileSetAtlasSource_kdubu")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(500, 500)
+
 [node name="Node2D" type="Node2D" unique_id=1043902537]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1073353610]
@@ -271,8 +275,14 @@ tile_set = SubResource("TileSet_d21ai")
 
 [node name="True" type="Node2D" parent="Clues" unique_id=1224671063]
 
-[node name="Node2D" type="Node2D" parent="Clues/True" unique_id=803483115]
+[node name="TrueClue1" type="Node2D" parent="Clues/True" unique_id=803483115]
 
 [node name="False" type="Node2D" parent="Clues" unique_id=1028226058]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1610374733]
+[node name="Investigator" type="StaticBody2D" parent="." unique_id=1610374733]
+script = ExtResource("3_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Investigator" unique_id=1785904292]
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Investigator" unique_id=933137933]

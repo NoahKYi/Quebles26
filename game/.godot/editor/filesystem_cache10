@@ -1,8 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770086206
+::res://::1770087351
 icon.svg::CompressedTexture2D::7285201640992332956::1769990635::1769990654::1::::<><><>0<>0<>8e61302492d5f86956c9200d50cbecab<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-node_2d.tscn::PackedScene::7350833315241018732::1770086184::0::1::::<><><>0<>0<><>::uid://0d5ej02h6kx::::res://Assets/TristanGhost.png<>uid://d3dys1s806776::::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/Tileset Spring.png
-::res://Assets/::1770086184
+node_2d.tscn::PackedScene::7350833315241018732::1770086774::0::1::::<><><>0<>0<><>::uid://0d5ej02h6kx::::res://Assets/TristanGhost.png<>uid://d3dys1s806776::::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/Tileset Spring.png
+::res://Assets/::1770086211
 TristanGhost.png::CompressedTexture2D::51845393815858991::1770086184::1770086211::1::::<><><>0<>0<>02e5827b9722c112c98070e6ae2a7d34<>res://.godot/imported/TristanGhost.png-b72e703915abe4811c872de14637c8cb.ctex::
 ::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/::1770083674
 ::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Character/::1770083988
