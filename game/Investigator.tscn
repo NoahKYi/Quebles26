@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://da6qpp2nb8mdx"]
+
+[ext_resource type="Script" uid="uid://c7lr7edo8rp3j" path="res://scripts/investigator.gd" id="1_e0kx2"]
+[ext_resource type="Texture2D" uid="uid://dnfi5q1js2wxo" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Villager/Faceset.png" id="2_r0ihr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sieet"]
+
+[node name="Investigator" type="Node2D" unique_id=1354331390]
+script = ExtResource("1_e0kx2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1680494728]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=929936799]
+shape = SubResource("RectangleShape2D_sieet")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1565940189]
+texture = ExtResource("2_r0ihr")
