@@ -1,3 +1,26 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770084372
+::res://::1770086535
 icon.svg::CompressedTexture2D::7285201640992332956::1769991078::1769991173::1::::<><><>0<>0<>8e61302492d5f86956c9200d50cbecab<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+node_2d.tscn::PackedScene::7350833315241018732::1770086432::0::1::::<><><>0<>0<><>::uid://0d5ej02h6kx::::res://Assets/TristanGhost.png<>uid://d3dys1s806776::::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/Tileset Spring.png
+::res://Assets/::1770086535
+TristanGhost.png::CompressedTexture2D::51845393815858991::1770086366::1770086432::1::::<><><>0<>0<>02e5827b9722c112c98070e6ae2a7d34<>res://.godot/imported/TristanGhost.png-b72e703915abe4811c872de14637c8cb.ctex::
+::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/::1770086526
+::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Character/::1770086526
+Idle.png::CompressedTexture2D::1215443681362209601::1770086526::1770086535::1::::<><><>0<>0<>462a72be7f8e8f510188aea1b053ee51<>res://.godot/imported/Idle.png-d7c0ca83bc6367df9f19c13aad267981.ctex::
+Walk.png::CompressedTexture2D::6717609791035888366::1770086526::1770086535::1::::<><><>0<>0<>8ac90b64025beeab51cef9ca2e2f05f8<>res://.godot/imported/Walk.png-ebad68a2f8491fc26338809dc00907cc.ctex::
+::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Farm Animals/::1770086526
+Baby Chicken Yellow.png::CompressedTexture2D::6569881499991614435::1770086526::1770086535::1::::<><><>0<>0<>202ce33a2abb076aa17006c56fb9962c<>res://.godot/imported/Baby Chicken Yellow.png-19b33e18ac85f75ee0c37d47f53435d1.ctex::
+Chicken Blonde  Green.png::CompressedTexture2D::881980937268519893::1770086526::1770086535::1::::<><><>0<>0<>34f0f967a56d75143ee5cc3e72faf364<>res://.godot/imported/Chicken Blonde  Green.png-47f6d328e09a9908af0ae74dc22956f7.ctex::
+Chicken Red.png::CompressedTexture2D::3195841098419409921::1770086526::1770086535::1::::<><><>0<>0<>aec6e951548c45efc5e26dded61acc3f<>res://.godot/imported/Chicken Red.png-2ce7614c3808f388a90a87f95a227c6b.ctex::
+Female Cow Brown.png::CompressedTexture2D::4833540936088392652::1770086526::1770086535::1::::<><><>0<>0<>2ed4e6e189b950940eb69f1bbbd8a264<>res://.godot/imported/Female Cow Brown.png-2b97e81d96a6adda34ee820b643671ea.ctex::
+Male Cow Brown.png::CompressedTexture2D::3646073895083139074::1770086526::1770086535::1::::<><><>0<>0<>25360266c2bd010e285112c9407a7cb0<>res://.godot/imported/Male Cow Brown.png-b021078a0f9b1aa7eb05bf88a13cd577.ctex::
+::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Objects/::1770086526
+chest.png::CompressedTexture2D::7512720781421547786::1770086526::1770086535::1::::<><><>0<>0<>e1c028f9fc8089ff88a844f77366e0bb<>res://.godot/imported/chest.png-c19d38b0029e5b34eb28dff48d456543.ctex::
+Fence's copiar.png::CompressedTexture2D::7046722231107128252::1770086526::1770086535::1::::<><><>0<>0<>2717a6c64ed8a4223b43dffc19bd6804<>res://.godot/imported/Fence's copiar.png-84c0b23634c2e6a5c362424ed7e25afb.ctex::
+House.png::CompressedTexture2D::3802453163180680506::1770086526::1770086535::1::::<><><>0<>0<>8a587748ebb84daa79a20f24e9d25311<>res://.godot/imported/House.png-47992415c0ee338c431fa2b79744255c.ctex::
+Interior.png::CompressedTexture2D::5178356060034794321::1770086526::1770086535::1::::<><><>0<>0<>9b57c3d6b8291732734381dd8daf5ba4<>res://.godot/imported/Interior.png-0cec3d2b95c0924964d45ef20408b1ad.ctex::
+Maple Tree.png::CompressedTexture2D::7325490463416813492::1770086526::1770086535::1::::<><><>0<>0<>4f37b7231f34838c2ab57bd8797192d0<>res://.godot/imported/Maple Tree.png-519586d29ed2c21a305b7fa7bc4cd6a5.ctex::
+Road copiar.png::CompressedTexture2D::3353159781936495041::1770086526::1770086535::1::::<><><>0<>0<>91726fcce9e36f7450c523b5df99d159<>res://.godot/imported/Road copiar.png-25832bcfa787bd4a56012f0db27b852a.ctex::
+Spring Crops.png::CompressedTexture2D::580331129955728043::1770086526::1770086535::1::::<><><>0<>0<>c782c3cab71cf25227cde4781a1094f8<>res://.godot/imported/Spring Crops.png-abd1f362815e37c87a7f2a3a65c2e9d3.ctex::
+::res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/::1770086526
+Tileset Spring.png::CompressedTexture2D::3427476752379510149::1770086526::1770086535::1::::<><><>0<>0<>70b81d5d7542bdb2acd2a3c8c9bf8a62<>res://.godot/imported/Tileset Spring.png-ae7c241a9ca4daca1fa003306932d0ee.ctex::
