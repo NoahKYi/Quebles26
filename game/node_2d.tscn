@@ -266,3 +266,13 @@ autoplay = &"GhostMoving"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1140026847]
 tile_set = SubResource("TileSet_d21ai")
+
+[node name="Clues" type="Node2D" parent="." unique_id=252679405]
+
+[node name="True" type="Node2D" parent="Clues" unique_id=1224671063]
+
+[node name="Node2D" type="Node2D" parent="Clues/True" unique_id=803483115]
+
+[node name="False" type="Node2D" parent="Clues" unique_id=1028226058]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1610374733]
