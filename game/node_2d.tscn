@@ -255,6 +255,9 @@ texture = ExtResource("2_epypp")
 [sub_resource type="TileSet" id="TileSet_d21ai"]
 sources/0 = SubResource("TileSetAtlasSource_kdubu")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(300, 300)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(500, 500)
 
@@ -278,11 +281,18 @@ tile_set = SubResource("TileSet_d21ai")
 
 [node name="True" type="Node2D" parent="Clues" unique_id=1224671063]
 
-[node name="TrueClue1" type="Node2D" parent="Clues/True" unique_id=803483115]
+[node name="TrueClue1" type="StaticBody2D" parent="Clues/True" unique_id=1363845022]
+script = ExtResource("3_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clues/True/TrueClue1" unique_id=1090880852]
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Clues/True/TrueClue1" unique_id=756329911]
 
 [node name="False" type="Node2D" parent="Clues" unique_id=1028226058]
 
 [node name="Investigator" type="StaticBody2D" parent="." unique_id=1610374733]
+position = Vector2(1512, -197)
 script = ExtResource("3_epypp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Investigator" unique_id=1785904292]
