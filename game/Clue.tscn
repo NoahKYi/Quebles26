@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c326xvikq65wr"]
+
+[ext_resource type="Script" uid="uid://dcsewv3e8grn0" path="res://scripts/clue.gd" id="1_rdfgf"]
+[ext_resource type="Texture2D" uid="uid://bo8c4c6q1rsak" path="res://Assets/Ninja Adventure - Asset Pack/Items/Potion/WaterPot.png" id="2_kaqtq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odqx5"]
+
+[node name="Clue" type="Node2D" unique_id=1541945220]
+script = ExtResource("1_rdfgf")
+metadata/sprite_image = ""
+metadata/clue_number = 0
+metadata/next_clue = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=872803569]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1652145820]
+shape = SubResource("RectangleShape2D_odqx5")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=518387671]
+scale = Vector2(2, 2)
+texture = ExtResource("2_kaqtq")
