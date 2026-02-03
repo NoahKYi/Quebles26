@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://dcy2feimmw5wy"]
 
 [ext_resource type="Texture2D" uid="uid://0d5ej02h6kx" path="res://Assets/TristanGhost.png" id="1_0e48y"]
-[ext_resource type="Texture2D" uid="uid://d3dys1s806776" path="res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/Tileset Spring.png" id="2_epypp"]
-[ext_resource type="Script" uid="uid://dcsewv3e8grn0" path="res://scripts/clue.gd" id="3_0hol4"]
+
+[ext_resource type="Texture2D" uid="uid://bo3kbn2i6nr2t" path="res://Assets/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/Tileset Spring.png" id="2_epypp"]
+[node name="Node2D" type="Node2D" unique_id=607523417]
 [ext_resource type="Script" uid="uid://c7lr7edo8rp3j" path="res://scripts/investigator.gd" id="3_epypp"]
 
-[sub_resource type="Animation" id="Animation_0hol4"]
-resource_name = "GhostMoving"
 
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1233879083]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=537256847]
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q6r6c"]
 _data = {
 &"GhostMoving": SubResource("Animation_0hol4")
