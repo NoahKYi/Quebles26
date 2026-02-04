@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5s7wnykpelvg"
-path="res://.godot/imported/TilesetWallSimple.png-b338afdc998e4c32b08e9e33c006ad43.ctex"
+uid="uid://er0mk0rc21h8"
+path="res://.godot/imported/TilesetWallSimple.png-a71231530928f312bece1ac763ad2dc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png"
-dest_files=["res://.godot/imported/TilesetWallSimple.png-b338afdc998e4c32b08e9e33c006ad43.ctex"]
+source_file="res://Assets/TilesetWallSimple.png"
+dest_files=["res://.godot/imported/TilesetWallSimple.png-a71231530928f312bece1ac763ad2dc3.ctex"]
 
 [params]
 
