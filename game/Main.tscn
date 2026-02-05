@@ -39,35 +39,25 @@ scale = Vector2(0.035, 0.035)
 
 [node name="Clues" type="Node2D" parent="." unique_id=1531716243]
 
-[node name="TrueClue1" parent="Clues" unique_id=1541945220 instance=ExtResource("9_03owx")]
+[node name="EmptyMedicationBottle" parent="Clues" unique_id=1541945220 instance=ExtResource("9_03owx")]
 position = Vector2(277, 256)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://ecd88ux7acmu"
 metadata/clue_number = 1
-metadata/next_clue = 2
-metadata/trueClue = true
 
-[node name="TrueClue2" parent="Clues" unique_id=742140118 instance=ExtResource("9_03owx")]
+[node name="InsurranceWillDocument" parent="Clues" unique_id=742140118 instance=ExtResource("9_03owx")]
 position = Vector2(300, 77)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://bmu4ohdsjdu1x"
 metadata/clue_number = 2
-metadata/next_clue = 3
-metadata/trueClue = true
 
-[node name="TrueClue3" parent="Clues" unique_id=1456915339 instance=ExtResource("9_03owx")]
-position = Vector2(115, -69)
+[node name="Journal" parent="Clues" unique_id=1456915339 instance=ExtResource("9_03owx")]
+position = Vector2(108, -45)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://dvlk2x6p48l3j"
 metadata/clue_number = 3
-metadata/next_clue = 10
-metadata/trueClue = true
 
-[node name="FalseClue1" parent="Clues" unique_id=1224827358 instance=ExtResource("9_03owx")]
-position = Vector2(-55, 148)
-metadata/clue_number = 1
-metadata/next_clue = 2
-
-[node name="FlaseClue2" parent="Clues" unique_id=1686968635 instance=ExtResource("9_03owx")]
-position = Vector2(277, -81)
-metadata/clue_number = 2
-metadata/next_clue = 3
-
-[node name="FalseClue3" parent="Clues" unique_id=1939759915 instance=ExtResource("9_03owx")]
-position = Vector2(70, -25)
-metadata/clue_number = 3
-metadata/next_clue = 10
+[node name="ComputerWithPlantedSearchHistory" parent="Clues" unique_id=1939759915 instance=ExtResource("9_03owx")]
+position = Vector2(-8, -49)
+scale = Vector2(0.5, 0.5)
+metadata/clue_number = 4
