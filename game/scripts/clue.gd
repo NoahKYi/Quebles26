@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 @onready var sprite2d = get_node("StaticBody2D/Sprite2D")
 
 func _ready():
