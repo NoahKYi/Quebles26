@@ -3,6 +3,10 @@ extends CharacterBody2D
 @export var display_name: String
 @export var portrait: Texture2D
 
+func _ready() -> void:
+	# Add to the family_members group so the clue can find this NPC
+	add_to_group("family_members")
+
 func say(key: String):
 	print("test")
 	if not DialogueLines.LINES.has(key):
@@ -10,12 +14,6 @@ func say(key: String):
 	print(DialogueLines.LINES[key])
 	DialogueManager.show(DialogueLines.LINES[key], portrait, display_name)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 

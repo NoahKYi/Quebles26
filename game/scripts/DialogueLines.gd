@@ -2,6 +2,5 @@ extends Node
 
 const LINES := {
 	"found_item": "I found something over here!",
-	"idle": "Just walking around...",
-	"danger": "Something feels off..."
+	"heard_sound": "What was that sound? Better tell the investigator.",
 }
