@@ -9,7 +9,6 @@
 script = ExtResource("1_rdfgf")
 metadata/sprite_image = ""
 metadata/clue_number = 0
-metadata/next_clue = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=872803569]
 

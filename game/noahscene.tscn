@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfwav4omi04ro"]
 
-[ext_resource type="Script" uid="uid://dj2kbgo7kvdxt" path="res://player.gd" id="1_pfgo0"]
+[ext_resource type="Script" uid="uid://dj2kbgo7kvdxt" path="res://scripts/player.gd" id="1_pfgo0"]
 [ext_resource type="Texture2D" uid="uid://0d5ej02h6kx" path="res://Assets/TristanGhost.png" id="1_w2ac3"]
 
 [sub_resource type="Animation" id="Animation_pfgo0"]
@@ -39,8 +39,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3xmp"]
-radius = 260.0
-height = 638.0
+radius = 182.0
+height = 422.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfgo0"]
 atlas = ExtResource("1_w2ac3")
@@ -112,7 +112,8 @@ animations = [{
 [node name="Noahscene" type="Node2D" unique_id=278388439]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1899756301]
-position = Vector2(-111, 52)
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_pfgo0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=1344142712]
@@ -120,11 +121,13 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_lilb6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1978857132]
-position = Vector2(498, 260)
 shape = SubResource("CapsuleShape2D_m3xmp")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=2140642072]
-position = Vector2(496, 251)
 sprite_frames = SubResource("SpriteFrames_a7mne")
 animation = &"idle_animation"
 autoplay = "idle_animation"
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=474702789]
+zoom = Vector2(5, 5)
