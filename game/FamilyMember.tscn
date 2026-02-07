@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bxtk4y2df7110"]
 
+[ext_resource type="Script" uid="uid://dvc41dkfsvpyv" path="res://scripts/FamilyMember.gd" id="1_2cf8d"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_aj3ms"]
 animations = []
 
@@ -10,6 +12,7 @@ size = Vector2(16, 16)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=287436753]
 collision_layer = 2
+script = ExtResource("1_2cf8d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1323906409]
 sprite_frames = SubResource("SpriteFrames_aj3ms")

@@ -2,21 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://ohpw1pi3n8iv" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Investigator/SpriteSheet.png" id="1_2t360"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t360"]
+atlas = ExtResource("1_2t360")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbg7j"]
 atlas = ExtResource("1_2t360")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p10o1"]
 atlas = ExtResource("1_2t360")
-region = Rect2(16, 16, 16, 16)
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qi1jp"]
 atlas = ExtResource("1_2t360")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uors4"]
-atlas = ExtResource("1_2t360")
-region = Rect2(16, 48, 16, 16)
+region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ph2lb"]
 atlas = ExtResource("1_2t360")
@@ -70,6 +70,9 @@ region = Rect2(16, 48, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2t360")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hbg7j")
 }, {
 "duration": 1.0,
@@ -77,9 +80,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qi1jp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uors4")
 }],
 "loop": true,
 "name": &"walk_down",

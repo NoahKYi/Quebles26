@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfwav4omi04ro"]
 
-[ext_resource type="Script" uid="uid://dj2kbgo7kvdxt" path="res://player.gd" id="1_pfgo0"]
+[ext_resource type="Script" uid="uid://dj2kbgo7kvdxt" path="res://scripts/player.gd" id="1_pfgo0"]
 [ext_resource type="Texture2D" uid="uid://0d5ej02h6kx" path="res://Assets/TristanGhost.png" id="1_w2ac3"]
 
 [sub_resource type="Animation" id="Animation_pfgo0"]

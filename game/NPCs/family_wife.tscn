@@ -2,9 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bxtk4y2df7110" path="res://FamilyMember.tscn" id="1_aeb1y"]
 [ext_resource type="SpriteFrames" uid="uid://qipc83xoyve4" path="res://anim_frames/wife_frames.tres" id="2_oigqj"]
+[ext_resource type="Texture2D" uid="uid://bvqksogkm5lpe" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Wife/Faceset.png" id="2_q362n"]
 
 [node name="Wife" unique_id=1168237234 instance=ExtResource("1_aeb1y")]
 
-[node name="AnimatedSprite2D" parent="CharacterBody2D" parent_id_path=PackedInt32Array(287436753) index="0" unique_id=1323906409]
+[node name="CharacterBody2D" parent="." index="0" unique_id=287436753]
+display_name = "Wife"
+portrait = ExtResource("2_q362n")
+
+[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0" unique_id=1323906409]
 sprite_frames = ExtResource("2_oigqj")
 animation = &"walk_down"
