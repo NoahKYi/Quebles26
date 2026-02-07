@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmsxpufovapme" path="res://NPCs/family_son.tscn" id="5_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://cknm8ncryhn7x" path="res://NPCs/family_wife.tscn" id="6_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://da6qpp2nb8mdx" path="res://Investigator.tscn" id="7_c2ibq"]
-[ext_resource type="PackedScene" uid="uid://bfwav4omi04ro" path="res://noahscene.tscn" id="8_j4qnp"]
+[ext_resource type="PackedScene" uid="uid://bfwav4omi04ro" path="res://player.tscn" id="8_j4qnp"]
 [ext_resource type="PackedScene" uid="uid://c326xvikq65wr" path="res://Clue.tscn" id="9_03owx"]
 
 [node name="Main" type="Node2D" unique_id=1274673833]

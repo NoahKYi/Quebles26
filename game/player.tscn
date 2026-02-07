@@ -17,6 +17,18 @@ tracks/0/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
 
 [sub_resource type="Animation" id="Animation_c6fue"]
 resource_name = "player_walk_down"
@@ -110,7 +122,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Noahscene" type="Node2D" unique_id=278388439]
+[node name="PlayerScene" type="Node2D" unique_id=278388439]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1899756301]
 collision_layer = 4
@@ -122,11 +134,11 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_lilb6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1978857132]
-position = Vector2(496, 254)
+position = Vector2(59, 25)
 shape = SubResource("CapsuleShape2D_m3xmp")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=2140642072]
-position = Vector2(496, 251)
+position = Vector2(59.000015, 21)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_a7mne")
 animation = &"idle_animation"
@@ -135,22 +147,29 @@ frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=474702789]
 zoom = Vector2(5, 5)
+
 [node name="Control" type="Control" parent="." unique_id=1148686791]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 355.0
-offset_top = 26.0
-offset_right = 796.0
-offset_bottom = 146.0
+offset_left = -58.0
+offset_top = -47.0
+offset_right = 46.0
+offset_bottom = -14.0
 script = ExtResource("3_lilb6")
 
 [node name="Timer" type="Timer" parent="Control" unique_id=1356253790]
+autostart = true
 
 [node name="Label" type="Label" parent="Control" unique_id=63215590]
-layout_mode = 0
-offset_left = 426.0
-offset_top = 51.0
-offset_right = 681.0
-offset_bottom = 77.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.038000003
+anchor_top = 0.21200001
+anchor_right = 0.87500006
+anchor_bottom = 1.848
+offset_left = -0.04800749
+offset_top = 0.00399971
+offset_right = -1.5258789e-05
+offset_bottom = 0.015995026
 
-[connection signal="timeout" from="Control/Timer" to="Control/Timer" method="_on_timeout"]
+[connection signal="timeout" from="Control/Timer" to="Control" method="_on_timeout"]
