@@ -2,17 +2,20 @@ extends Node2D
 
 @onready var clueNumber = self.get_meta("clue_number")
 @onready var nextClue = self.get_meta("next_clue")
+@onready var navigation = self.get_node("../Map/Floor/Walkable")
 var currentRoomNumber = 1
 var state = 0 #0 means the investigator should go to a new location, 1 means traveling to a new location, 2 means investigating a location
 var timeUntilDoneInvestigatingThisSpot = 0;
 var destinationInteractLocation = null;
 var destination : Vector2 = Vector2(0,0) #coordinates to wherever the investigator is trying to move (updated by functions go wander around the rooms)
+var nextRoutePoint : Vector2 = self.position #next point along the route to destination generated using the AStarGrid2D in the Map scene
 #format for storing where the navigator can go in each room in the following format, also if the clue number is zero then there is nothing to find at that location {roomNumber1: [[Vector2(xCordOfInteractLocation, yCord), clueNumber], [next location], [third location], ...], roomNumber2: [...] ...}
-var interactLocations = {1: [[Vector2(1083,1972), 0], [Vector2(1033,132), 2], [Vector2(230,180), 1]]}
+var interactLocations = {1: [[Vector2(10,10), 0], [Vector2(20,20), 2], [Vector2(20,15), 1]]}
 var foundClues = []
 var alreadyVisited = []
-var threshold = 50 #distance the investigator must be within to the destination before the investigator stops moving
+var threshold = 5 #distance the investigator must be within to the destination before the investigator stops moving
 var timerUntilDoneInvestigating = null;
+var speed = 5;
 func _process(delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
 	#roomNumber = currentRoom
@@ -28,8 +31,18 @@ func _process(delta: float) -> void:
 			investigate()
 			#do nothing until a timer runs out which will call a function to reveal the results of investigating a certain location (either will find nothing, a clue, or a false clue)
 
+func _physics_process(delta: float) -> void:
+	self.position += self.position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
+	if (self.position.distance_to(nextRoutePoint) < threshold):
+		#recalculate the path to the destination and set the next point as nextRoutePoint
+		var path = navigation.get_ideal_path(self.position, destination)
+		
+		if (len(path) > 1):
+			nextRoutePoint = path[1]
+		else:
+			print("arrived")
 #navigate to a certain room when either the murderer or the player makes a noise
-func goToRoom(roomNumber:int):
+func goToRoom(roomNumber : int):
 	
 	pass
 #slowly wander around a and look for clues
@@ -40,11 +53,12 @@ func wanderAroundRoom():
 	destination = destinationInteractLocation[0] #go to the coords stored in the destinationInteractLocation (index 0 is the coords, index 1 is what clue is at that location (or lack of a clue indicated by value of 0))
 	#TODO: Add logic so the investigator doesn't revisit already visited locations
 	
+	state = 1
+	
 	
 #go to target destination as determined by destination variable
 func goToTargetLocation():
 	#TODO: Add code to actually move the invesitgator towards the target avoiding hitting walls or other objects
-	
 	if self.global_position.distance_to(destination) < threshold:
 		state = 2 #set state to investigating (stop at the location and investigate)
 		timerUntilDoneInvestigating = Timer.new()
