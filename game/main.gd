@@ -13,16 +13,15 @@ func _ready() -> void:
 		await show_intro()
 	await fade_out_screen_block()  # Fade out instead of instant hide
 
-# Async function for the intro
 func show_intro() -> void:
-	await DialogueManager.show("You shouldn't be here… or rather, you shouldn't be alive.", null, "Narrator")
-	await DialogueManager.show("Your son… he ended your life. And now… you've been given a second chance.", null, "Narrator")
-	await DialogueManager.show("The world feels… off. You can pass through walls. You can move objects without touching them.", null, "Narrator")
-	await DialogueManager.show("But be careful. Every action has consequences… subtle ones.", null, "Narrator")
-	await DialogueManager.show("Hidden clues are scattered across the house: bottles, documents, journals. Some reveal the truth, others mislead.", null, "Narrator")
-	await DialogueManager.show("Move the clues wisely. The investigator is searching. If they notice something out of place, it will help them piece together the case.", null, "Narrator")
-	await DialogueManager.show("Strategically guide the investigator to the real murderer… and make them pay for what they did.", null, "Narrator")
-	await DialogueManager.show("Press SHIFT to walk through walls. Press Q to pick up and place objects. Push E to interact with items. Your time and energy as a soul is limited, so act wisely.", null, "Narrator")
+	await DialogueManager.show("You’re dead. But you’re still here.", null, "???")
+	await DialogueManager.show("Your death wasn’t an accident.", null, "???")
+	await DialogueManager.show("Now you linger as a soul - unseen, unsettled, out of place.", null, "???")
+	await DialogueManager.show("You can slip through walls. You can possess objects.", null, "???")
+	await DialogueManager.show("When things shift, people notice. Something feels… out of place.", null, "???")
+	await DialogueManager.show("Not everything tells the truth. Some things are meant to mislead.", null, "???")
+	await DialogueManager.show("An investigator is searching. Guide them carefully.", null, "???")
+	await DialogueManager.show("SHIFT: pass through walls. Q: possess objects. E: interact.", null, "???")
 
 # Fade out the screen block
 func fade_out_screen_block() -> void:
