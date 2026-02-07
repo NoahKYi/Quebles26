@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://dmks875iedqku"]
 
 [ext_resource type="PackedScene" uid="uid://bxtk4y2df7110" path="res://FamilyMember.tscn" id="1_wufo3"]
+[ext_resource type="Texture2D" uid="uid://1bglwjcx8nqv" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Grandma/Faceset.png" id="2_753pl"]
 [ext_resource type="SpriteFrames" uid="uid://dgdhsbtn4icqd" path="res://anim_frames/grandma_frames.tres" id="2_hja63"]
 
 [node name="Grandma" unique_id=1168237234 instance=ExtResource("1_wufo3")]
 
-[node name="AnimatedSprite2D" parent="CharacterBody2D" parent_id_path=PackedInt32Array(287436753) index="0" unique_id=1323906409]
+[node name="CharacterBody2D" parent="." index="0" unique_id=287436753]
+display_name = "Grandma"
+portrait = ExtResource("2_753pl")
+
+[node name="AnimatedSprite2D" parent="CharacterBody2D" index="0" unique_id=1323906409]
 sprite_frames = ExtResource("2_hja63")
 animation = &"walk_down"

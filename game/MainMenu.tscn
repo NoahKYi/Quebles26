@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://p15m6ab2qdcs"]
+
+[ext_resource type="Script" uid="uid://b6mxbxiqvt37n" path="res://main_menu.gd" id="1_h7a2f"]
+[ext_resource type="PackedScene" uid="uid://n7dt6wbqnp1n" path="res://Map.tscn" id="1_i26rj"]
+
+[node name="MainMenu" type="Node2D" unique_id=1584798249]
+script = ExtResource("1_h7a2f")
+
+[node name="Map" parent="." unique_id=1949028267 instance=ExtResource("1_i26rj")]
+position = Vector2(138, 76)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1956327182]
+anchor_mode = 0
+zoom = Vector2(1.55, 1.55)
+
+[node name="Panel" type="Panel" parent="." unique_id=1544866826]
+offset_right = 762.0
+offset_bottom = 440.0
+
+[node name="Label" type="Label" parent="." unique_id=1345009329]
+offset_left = 209.0
+offset_top = 54.0
+offset_right = 536.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 38
+text = "One More Chance"
+
+[node name="StartButton" type="Button" parent="." unique_id=792557677]
+offset_left = 211.0
+offset_top = 234.0
+offset_right = 529.0
+offset_bottom = 339.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

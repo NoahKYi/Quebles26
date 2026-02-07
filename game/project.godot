@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Quebles2026"
-run/main_scene="uid://dgl4urqk8xhgf"
+run/main_scene="uid://p15m6ab2qdcs"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DialogueManager="*uid://c2g5tphx41xk3"
+DialogueLines="*uid://cbhjw2ij5qdkq"
 
 [editor_plugins]
 

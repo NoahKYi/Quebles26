@@ -14,6 +14,8 @@ script = ExtResource("1_e0kx2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=255044026]
 sprite_frames = ExtResource("2_e0kx2")
 animation = &"walk_down"
+frame = 1
+frame_progress = 0.41771325
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2072105956]
 shape = SubResource("RectangleShape2D_r0ihr")

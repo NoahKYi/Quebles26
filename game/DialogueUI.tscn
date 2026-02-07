@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://k6k2xn0uu2sm"]
+
+[ext_resource type="Script" uid="uid://cidfph1ah0ynh" path="res://scripts/DialogueUI.gd" id="1_2qs6e"]
+[ext_resource type="Texture2D" uid="uid://db2aha5akocwy" path="res://icon.svg" id="1_obd5m"]
+[ext_resource type="AudioStream" uid="uid://cm7uxo0vwmm5p" path="res://Assets/blip.mp3" id="3_u32t2"]
+
+[node name="DialogueUI" type="Control" unique_id=1207744669]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2qs6e")
+
+[node name="Panel" type="Panel" parent="." unique_id=1128365607]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 400.0
+offset_right = 950.0
+offset_bottom = 600.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1729334317]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 193.0
+offset_bottom = 192.0
+texture = ExtResource("1_obd5m")
+
+[node name="NameLabel" type="Label" parent="Panel" unique_id=1126427623]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 11.0
+offset_right = 418.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Godot"
+
+[node name="Text" type="Label" parent="Panel" unique_id=961307687]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 65.0
+offset_right = 727.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 28
+text = "Godotaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+autowrap_mode = 3
+
+[node name="BlipPlayer" type="AudioStreamPlayer2D" parent="." unique_id=203404955]
+stream = ExtResource("3_u32t2")
+volume_db = -10.0
+max_polyphony = 6

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dgl4urqk8xhgf"]
 
+[ext_resource type="Script" uid="uid://v6wm31hfidg5" path="res://main.gd" id="1_20pc6"]
 [ext_resource type="PackedScene" uid="uid://n7dt6wbqnp1n" path="res://Map.tscn" id="1_trn2v"]
 [ext_resource type="PackedScene" uid="uid://cjxlrp0k0y7su" path="res://NPCs/family_daughter.tscn" id="2_03owx"]
 [ext_resource type="PackedScene" uid="uid://dmks875iedqku" path="res://NPCs/family_grandma.tscn" id="3_wkp8b"]
@@ -9,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://da6qpp2nb8mdx" path="res://Investigator.tscn" id="7_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://bfwav4omi04ro" path="res://noahscene.tscn" id="8_j4qnp"]
 [ext_resource type="PackedScene" uid="uid://c326xvikq65wr" path="res://Clue.tscn" id="9_03owx"]
+[ext_resource type="PackedScene" uid="uid://v8obrdlposyf" path="res://UI.tscn" id="10_wkp8b"]
 
 [node name="Main" type="Node2D" unique_id=1274673833]
+script = ExtResource("1_20pc6")
 
 [node name="Map" parent="." unique_id=1949028267 instance=ExtResource("1_trn2v")]
 position = Vector2(-92, -55)
@@ -61,3 +64,17 @@ metadata/clue_number = 3
 position = Vector2(-8, -49)
 scale = Vector2(0.5, 0.5)
 metadata/clue_number = 4
+
+[node name="Ui" parent="." unique_id=1002363222 instance=ExtResource("10_wkp8b")]
+layer = 500
+
+[node name="ScreenBlock" type="CanvasLayer" parent="." unique_id=349775312]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ScreenBlock" unique_id=1185533836]
+z_index = 100
+offset_left = -26.0
+offset_top = -14.0
+offset_right = 1168.0
+offset_bottom = 669.0
+color = Color(0, 0, 0, 1)
