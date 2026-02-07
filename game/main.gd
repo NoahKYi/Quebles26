@@ -3,11 +3,14 @@ extends Node2D
 @onready var screen_block = $ScreenBlock
 @onready var screen_block_rect = $ScreenBlock/ColorRect  # or whatever the visual node is called
 
+var temp_skip = true
+
 func _ready() -> void:
 	screen_block.visible = true
 	screen_block_rect.modulate.a = 1.0  # Ensure it starts fully opaque
 	await get_tree().process_frame  # let the engine actually draw the black screen
-	await show_intro()
+	if !temp_skip:
+		await show_intro()
 	await fade_out_screen_block()  # Fade out instead of instant hide
 
 # Async function for the intro
