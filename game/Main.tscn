@@ -37,10 +37,6 @@ position = Vector2(-41, 19)
 [node name="Investigator" parent="." unique_id=1354331390 instance=ExtResource("7_c2ibq")]
 position = Vector2(32, 36)
 
-[node name="player" parent="." unique_id=278388439 instance=ExtResource("8_j4qnp")]
-position = Vector2(19, 14.999998)
-scale = Vector2(0.4, 0.35)
-
 [node name="OtherInvestigationSpotsWithoutClues" type="Node2D" parent="." unique_id=1335766583]
 
 [node name="Sprite2D" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1119186105]

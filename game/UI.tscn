@@ -21,11 +21,16 @@ corner_radius_bottom_left = 10
 
 [node name="Possess" type="Control" parent="." unique_id=512948960]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 908.975
-offset_top = 568.94
-offset_right = 1062.9774
-offset_bottom = 608.94
+anchor_left = 1.0530001
+anchor_top = 1.0250001
+anchor_right = 1.0530001
+anchor_bottom = 1.0250001
+offset_left = -287.26813
+offset_top = -85.65509
+offset_right = -133.26453
+offset_bottom = -45.65509
+grow_horizontal = 0
+grow_vertical = 0
 scale = Vector2(1.4, 1.4)
 
 [node name="Panel" type="Panel" parent="Possess" unique_id=2050654827]
