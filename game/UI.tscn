@@ -17,10 +17,8 @@ corner_radius_bottom_left = 10
 [node name="UI" type="CanvasLayer" unique_id=1002363222]
 
 [node name="DialogueUI" parent="." unique_id=1207744669 instance=ExtResource("1_b3bc3")]
-visible = false
 
 [node name="Possess" type="Control" parent="." unique_id=512948960]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 908.975

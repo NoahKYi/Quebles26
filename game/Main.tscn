@@ -38,7 +38,7 @@ position = Vector2(32, 36)
 
 [node name="player" parent="." unique_id=278388439 instance=ExtResource("8_j4qnp")]
 position = Vector2(19, 14.999998)
-scale = Vector2(0.4, 0.35)
+scale = Vector2(0.04, 0.04)
 
 [node name="Clues" type="Node2D" parent="." unique_id=1531716243]
 
