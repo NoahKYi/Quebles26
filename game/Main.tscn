@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgl4urqk8xhgf"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_20pc6"]
+[ext_resource type="Script" uid="uid://v6wm31hfidg5" path="res://main.gd" id="1_20pc6"]
 [ext_resource type="PackedScene" uid="uid://n7dt6wbqnp1n" path="res://Map.tscn" id="1_trn2v"]
 [ext_resource type="PackedScene" uid="uid://cjxlrp0k0y7su" path="res://NPCs/family_daughter.tscn" id="2_03owx"]
 [ext_resource type="PackedScene" uid="uid://dmks875iedqku" path="res://NPCs/family_grandma.tscn" id="3_wkp8b"]
