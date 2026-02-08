@@ -1,6 +1,7 @@
 extends TileMapLayer
 
 @onready var astarGrid : AStarGrid2D = AStarGrid2D.new();
+@onready var walkableCells = self.get_used_cells()
 
 func _ready() -> void:
 	
@@ -19,7 +20,7 @@ func _ready() -> void:
 	
 	#then make the walkable ones not "solid"
 	var cellID = 1;
-	for cell : Vector2i in self.get_used_cells():
+	for cell : Vector2i in walkableCells:
 
 		astarGrid.set_point_solid(cell, false)
 		cellID += 1
@@ -33,8 +34,8 @@ func get_ideal_path(a: Vector2, b: Vector2):
 	a = Vector2i((self.to_local(a).x / astarGrid.cell_size.x), (self.to_local(a).y / astarGrid.cell_size.y))
 	b = Vector2i((self.to_local(b).x / astarGrid.cell_size.x), (self.to_local(b).y / astarGrid.cell_size.y))
 	
-	#print(a,b)
-	#print("is in bounds?: " + str(astarGrid.is_in_bounds(a.x, a.y)) + " " + str(astarGrid.is_in_bounds(b.x, b.y)))
+	print(a,b)
+	print("is in bounds?: " + str(astarGrid.is_in_bounds(a.x, a.y)) + " " + str(astarGrid.is_in_bounds(b.x, b.y)))
 	#calculate path
 	var path = astarGrid.get_id_path(a,b, true)
 	#print(path)
@@ -48,3 +49,24 @@ func get_ideal_path(a: Vector2, b: Vector2):
 	self.get_node("../../To").global_position = to_global(Vector2i((b.x) * astarGrid.cell_size.x, (b.y) * astarGrid.cell_size.y))
 	return output
 	
+func get_path_to_random_spot(a: Vector2): #a is from position
+	
+	var randomCell = walkableCells[randi() % len(walkableCells)]
+	#convert input coordinates to local coordinate system to calculate path
+	var b = randomCell
+	
+	a = Vector2i((self.to_local(a).x / astarGrid.cell_size.x), (self.to_local(a).y / astarGrid.cell_size.y))
+	#b is already the id of a cell and doesn't need to be converted from global coordinates to astargrid id coordinates
+	
+	#print(a,b)
+	#print("is in bounds?: " + str(astarGrid.is_in_bounds(a.x, a.y)) + " " + str(astarGrid.is_in_bounds(b.x, b.y)))
+	#calculate path
+	var path = astarGrid.get_id_path(a,b, true)
+	#print(path)
+	#convert back to global coordinates
+	var output : PackedVector2Array = PackedVector2Array()
+	for point : Vector2 in path:
+		output.push_back(to_global(Vector2i((point.x) * astarGrid.cell_size.x, (point.y) * astarGrid.cell_size.y)))
+	#print(output)
+	#return output path that is now using global coordinates
+	return output
