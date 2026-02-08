@@ -2,7 +2,7 @@ extends Control
 
 var type_speed := 0.03
 var hold_time := 1.5
-var punctuation_pause := 0.25 # 👈 pause after periods etc
+var punctuation_pause := 0.25 #  pause after periods etc
 
 @onready var blip_player := $BlipPlayer
 var typing := false
@@ -36,7 +36,7 @@ func _process_queue_async():
 	
 	typing = false
 
-# 💀 typewriter with dramatic sigma pauses
+# typewriter with dramatic sigma pauses
 func _type_text(text: String):
 	for c in text:
 		$Panel/Text.text += c
@@ -46,7 +46,7 @@ func _type_text(text: String):
 		
 		var delay := type_speed
 		if c in [".", "!", "?"]:
-			delay += punctuation_pause  # 👻 dramatic pause
+			delay += punctuation_pause  # dramatic pause
 		
 		await get_tree().create_timer(delay).timeout
 

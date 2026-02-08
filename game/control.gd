@@ -10,7 +10,6 @@ var sec = 0
 var min = 0
 var defsec = 0 # Default Seconds
 var defmin = 5 # Default Minutes
-var parent = get_parent()
 
 func Reset_Timer():
 	sec = defsec

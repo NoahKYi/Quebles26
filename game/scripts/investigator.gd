@@ -17,8 +17,19 @@ var timerUntilDoneInvestigating = null;
 var speed = 20
 var path = []
 
+
+#Timer -----------------------------------------------------------
+var sec = 0
+var min = 0
+var defsec = 0 # Default Seconds
+var defmin = 5 # Default Minutes
+#-----------------------------------------------------------------
+
+
 func _ready() -> void:
 	populateInteractLocations()
+	Reset_Timer()
+
 	
 func _process(_delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
@@ -35,6 +46,15 @@ func _process(_delta: float) -> void:
 		2:
 			investigate()
 			#do nothing until a timer runs out which will call a function to reveal the results of investigating a certain location (either will find nothing, a clue, or a false clue)
+	
+	if timerUntilDoneInvestigating and timerUntilDoneInvestigating.time_left > 0:
+		var t = int(timerUntilDoneInvestigating.time_left)
+		var minutes = t / 60
+		var seconds = t % 60
+		$Timer.text = "%02d:%02d" % [minutes, seconds]
+	else:
+		$Timer_label.text = ""  # hide when done
+
 
 func _physics_process(delta: float) -> void:
 	self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
@@ -94,12 +114,22 @@ func wanderAroundHouse():
 func startInvestigating():
 	timerUntilDoneInvestigating = Timer.new()
 	timerUntilDoneInvestigating.one_shot = true #don't reset the remaining time automatically once the timer finishes
-	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 0) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
+	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 20) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
 	get_tree().root.add_child(timerUntilDoneInvestigating)
 	timerUntilDoneInvestigating.start()
 	
+
+	
+#Timer Stuff----------------------------------------
+func Reset_Timer():
+	sec = defsec
+	min = defmin	
+func upd_script():
+	$Label.text = "%02d:%02d" % [min, sec]
+#---------------------------------------------------
+	
 func investigate():
-	#print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
+	
 	if timerUntilDoneInvestigating.get_time_left() > 0:
 		#do nothing until the timer runs out
 		pass
@@ -109,13 +139,12 @@ func investigate():
 			foundClues.push_back(destinationInteractLocation[1]) #add the found clue to the list of found clues
 			state = 0
 			print("found clue " + str(destinationInteractLocation[1]))
-			#TODO: actually do something once the investigator finds a clue
+			#TODO: Add time
+			
+			
 			pass
 		else:
 			#didn't find a clue
 			alreadyVisited.append(destinationInteractLocation)
 			state = 0 #the investigator should go somewhere else
 			print("Didn't find a clue")
-	
-
-			
