@@ -152,4 +152,5 @@ func respond_to_journal_question():
 		investigator.investigate_will_after_daughter_request()
 	else:
 		say("daughter_respond_to_journal_question_give_up")
+		investigator.daughter_confessed()
 		#player wins
