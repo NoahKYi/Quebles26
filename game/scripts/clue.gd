@@ -114,3 +114,5 @@ func check_npcs_in_range(radius: float):
 		print(npc.display_name, distance)
 		if distance * 2 <= radius:
 			npc.say("heard_sound")
+			print(npc.name)
+			npc.walkToInvestigator(self.global_position) #have the NPC tell the investigator where they heard a sound
