@@ -27,9 +27,10 @@ shape = SubResource("RectangleShape2D_r0ihr")
 [node name="Timer" type="Timer" parent="." unique_id=1521502278]
 
 [node name="Label" type="Label" parent="." unique_id=669114887]
-offset_left = -9.0
-offset_top = -22.0
-offset_right = 10.0
-offset_bottom = 1.0
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 22.0
+offset_bottom = 4.0
 theme_override_fonts/font = ExtResource("4_sieet")
+theme_override_font_sizes/font_size = 10
 text = "30"

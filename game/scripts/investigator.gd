@@ -39,7 +39,8 @@ func _process(_delta: float) -> void:
 	#roomNumber = currentRoom
 	if (timerUntilDoneInvestigating and timerUntilDoneInvestigating.time_left > 0):
 		var time_left = int(timerUntilDoneInvestigating.time_left)
-		$Label.text = str(time_left)
+		$Label.text = "%02d" % time_left
+		
 		
 	if timerUntilDoneInvestigating == null:
 		$Label.text = ""
