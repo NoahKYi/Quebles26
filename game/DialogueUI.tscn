@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cidfph1ah0ynh" path="res://scripts/DialogueUI.gd" id="1_2qs6e"]
 [ext_resource type="Texture2D" uid="uid://db2aha5akocwy" path="res://icon.svg" id="1_obd5m"]
+[ext_resource type="FontFile" uid="uid://d3mw54fbluh83" path="res://Assets/PixelOperator8-Bold.ttf" id="3_ph2hy"]
 [ext_resource type="AudioStream" uid="uid://cm7uxo0vwmm5p" path="res://Assets/blip.mp3" id="3_u32t2"]
+[ext_resource type="FontFile" uid="uid://cg583ep53irv6" path="res://Assets/PixelOperator8.ttf" id="4_doy4d"]
 
 [node name="DialogueUI" type="Control" unique_id=1207744669]
 layout_mode = 3
@@ -34,8 +36,10 @@ offset_top = 11.0
 offset_right = 418.0
 offset_bottom = 66.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_ph2hy")
 theme_override_font_sizes/font_size = 40
 text = "Godot"
+vertical_alignment = 1
 
 [node name="Text" type="Label" parent="Panel" unique_id=961307687]
 layout_mode = 0
@@ -43,7 +47,8 @@ offset_left = 208.0
 offset_top = 65.0
 offset_right = 727.0
 offset_bottom = 197.0
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("4_doy4d")
+theme_override_font_sizes/font_size = 29
 text = "Godotaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 autowrap_mode = 3
 

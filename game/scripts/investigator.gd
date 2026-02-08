@@ -2,9 +2,12 @@ extends Node2D
 
 @onready var clueNumber = self.get_meta("clue_number")
 @onready var nextClue = self.get_meta("next_clue")
+
 @onready var navigation = self.get_node("/root/Main/Map/Floor/Walkable")
 @onready var daughter = self.get_node("./Daughter/CharacterBody2D")
 @onready var clock = self.get_node("/root/UI/Countdown")
+@onready var son = self.get_node("../Son/CharacterBody2D")
+
 @export var display_name: String
 @export var portrait: Texture2D
 var state = 0 #0 means the investigator should go to a new location, 1 means traveling to a new location, 2 means investigating a location
@@ -22,6 +25,7 @@ var speed = 20
 var path = []
 var daughterSaidInvestigateLaptop = false
 var daughterSaidInvestigateWill = false
+var sonSaidInvestigateLaptopAgain = false
 
 
 func _process(_delta: float) -> void:
@@ -63,9 +67,17 @@ func _process(_delta: float) -> void:
 			#going to investigate will after asked by daughter
 			#handled by _physics_process
 			pass
+		11:
+			#going to question son after investigating laptop
+			#handled by _physics_process
+			pass
+		13:
+			#going to investigate laptop after talking to son
+			#handled by _physics_process
+			pass
 		
 func _physics_process(delta: float) -> void:
-	if (state == 1 or state == 3 or state == 5 or state == 7 or state == 9): #only move if the investigator should be moving to a new location
+	if (state == 1 or state == 3 or state == 5 or state == 7 or state == 9 or state == 11 or state == 13): #only move if the investigator should be moving to a new location
 		self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
 	
 		#print("nextRoutePoint: " + str(nextRoutePoint))
@@ -93,6 +105,14 @@ func _physics_process(delta: float) -> void:
 				elif state == 7:
 					state = 0
 				elif state == 9:
+					state = 0
+				elif state == 11:
+					if (self.global_position.distance_to(son.global_position) < threshold):
+						ask_son_about_laptop() #the son moved, go to their new position
+					else:
+						say("question_son_about_laptop")
+						son.respond_to_laptop_question()
+				elif state == 13:
 					state = 0
 				startInvestigating()
 
@@ -167,11 +187,18 @@ func investigate():
 					say("found_clue_3")
 					ask_daughter_about_journal()
 				4: #laptop
-					if (4 not in foundClues):
-						say("found_clue_4_again")
+					if (4 in foundClues):
+						
 						foundClues.push_back(5)
+						if (daughterSaidInvestigateLaptop):
+							say("daughter_guilty_and_tried_framing_son")
+							playerWins()
+						else:
+							say("found_clue_4_again")
+							
 					else:
 						say("found_clue_4")
+						ask_son_about_laptop()
 					
 			foundClues.push_back(destinationInteractLocation[1]) #add the found clue to the list of found clues
 			#TODO: actually do something once the investigator finds a clue
@@ -181,7 +208,10 @@ func investigate():
 			alreadyVisited.append(destinationInteractLocation)
 			state = 0 #the investigator should go somewhere else
 			print("Didn't find a clue")
-	
+
+func playerWins():
+	print("Player won")
+	pass
 func ask_daughter_about_journal():
 	state = 5
 	print("going to ask daughter about journal")
@@ -214,6 +244,22 @@ func investigate_will_after_daughter_request():
 	state = 9
 	daughterSaidInvestigateWill = true
 	
+func ask_son_about_laptop():
+	print("going to investigate laptop")
+	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
+	path = navigation.get_ideal_path(self.global_position, son.global_position)
+	if (len(path)>0):
+		nextRoutePoint = path[0]
+	state = 11
+func investigate_laptop_again_son():
+	print("investigating laptop again at son's request")
+	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
+	path = navigation.get_ideal_path(self.global_position, son.global_position)
+	if (len(path)>0):
+		nextRoutePoint = path[0]
+		
+	sonSaidInvestigateLaptopAgain = true
+	state = 13
 func investigate_sound(position: Vector2):
 	say("i_will_go_investigate")
 	print("going to investigate sound")

@@ -134,6 +134,8 @@ frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=474702789]
 zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 
 [node name="DetectionArea" type="Area2D" parent="Player" unique_id=474995508]
 
