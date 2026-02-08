@@ -109,7 +109,7 @@ position = Vector2(220, 215)
 texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D18" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1089119277]
-position = Vector2(104, 150)
+position = Vector2(97, 147)
 texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D19" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=24271143]
@@ -200,11 +200,17 @@ scale = Vector2(0.5, 0.5)
 metadata/sprite_image = "uid://ecd88ux7acmu"
 metadata/clue_number = 1
 
+[node name="TargetSpot" type="Node2D" parent="Clues/EmptyMedicationBottle" unique_id=1689011748]
+position = Vector2(4, 6)
+
 [node name="InsurranceWillDocument" parent="Clues" unique_id=742140118 instance=ExtResource("9_03owx")]
 position = Vector2(300, 77)
 scale = Vector2(0.5, 0.5)
 metadata/sprite_image = "uid://bmu4ohdsjdu1x"
 metadata/clue_number = 2
+
+[node name="TargetSpot" type="Node2D" parent="Clues/InsurranceWillDocument" unique_id=1809818088]
+position = Vector2(-4, 6)
 
 [node name="Journal" parent="Clues" unique_id=1456915339 instance=ExtResource("9_03owx")]
 position = Vector2(108, -45)
@@ -212,11 +218,16 @@ scale = Vector2(0.5, 0.5)
 metadata/sprite_image = "uid://dvlk2x6p48l3j"
 metadata/clue_number = 3
 
+[node name="TargetSpot" type="Node2D" parent="Clues/Journal" unique_id=1802145786]
+position = Vector2(28, 20)
+
 [node name="ComputerWithPlantedSearchHistory" parent="Clues" unique_id=1939759915 instance=ExtResource("9_03owx")]
 position = Vector2(293, 211)
 scale = Vector2(0.25, 0.25)
 metadata/sprite_image = "uid://c8g0omgf0vc6x"
 metadata/clue_number = 4
+
+[node name="TargetSpot" type="Node2D" parent="Clues/ComputerWithPlantedSearchHistory" unique_id=269175067]
 
 [node name="ScreenBlock" type="CanvasLayer" parent="." unique_id=349775312]
 visible = false

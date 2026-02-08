@@ -135,6 +135,8 @@ func tellInvestigator():
 	investigator.investigate_sound(positionToTellInvestigatorAbout)
 	state = 2
 	waitUntilWanderTimeout()
+	
+	
 
 func respond_to_laptop_question():
 	say("son_respond_to_laptop_question")

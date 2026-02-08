@@ -15,7 +15,7 @@ const LINES := {
 	"daughter_respond_to_journal_question_computer_redirect": "That must be forged, here look at this computer, it seems suspicious",
 	"daughter_respond_to_journal_question_will_redirect": "That must be forged, here look at this document, it seems suspicious",
 	"daughter_respond_to_journal_question_give_up": "I confess, I committed the murder",
-	"i_will_go_investigate_the_laptop": "Ok, I will go investigate the laptop",
+	"i_will_go_investigate_the_laptop": "Ok, I will go investigate the computer",
 	"i_will_go_investigate_the_will": "Ok, I will investigate the will",
 	"question_son_about_laptop": "Hey, there's a laptop with search history showing that you searched how to poison someone. What do you have to say?",
 	"son_respond_to_laptop_question": "I didn't search that. Could you investigate it again and double check?",
