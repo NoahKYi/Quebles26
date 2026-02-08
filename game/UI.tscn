@@ -2,6 +2,55 @@
 
 [ext_resource type="PackedScene" uid="uid://k6k2xn0uu2sm" path="res://DialogueUI.tscn" id="1_b3bc3"]
 
-[node name="Ui" type="CanvasLayer" unique_id=1002363222]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3bc3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0.8235294, 0.8235294, 0.8235294, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="UI" type="CanvasLayer" unique_id=1002363222]
 
 [node name="DialogueUI" parent="." unique_id=1207744669 instance=ExtResource("1_b3bc3")]
+visible = false
+
+[node name="Possess" type="Control" parent="." unique_id=512948960]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 908.975
+offset_top = 568.94
+offset_right = 1062.9774
+offset_bottom = 608.94
+scale = Vector2(1.4, 1.4)
+
+[node name="Panel" type="Panel" parent="Possess" unique_id=2050654827]
+layout_mode = 0
+offset_left = 111.615
+offset_right = 151.61496
+offset_bottom = 40.0
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_b3bc3")
+
+[node name="Label" type="Label" parent="Possess/Panel" unique_id=1657198776]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.8217887, 0.82178867, 0.82178867, 1)
+theme_override_font_sizes/font_size = 25
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Possess" unique_id=80955468]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 28
+text = "Possess"
+vertical_alignment = 1

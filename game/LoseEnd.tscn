@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://gq62scyr00ec"]
+
+[ext_resource type="Script" uid="uid://b1ym3cgn5nd8n" path="res://LoseEnd.gd" id="1_s173w"]
+[ext_resource type="PackedScene" uid="uid://v8obrdlposyf" path="res://UI.tscn" id="2_fjmbh"]
+
+[node name="LoseEnd" type="Node2D" unique_id=824146792]
+script = ExtResource("1_s173w")
+
+[node name="UI" parent="." unique_id=1002363222 instance=ExtResource("2_fjmbh")]
+layer = 500
+
+[node name="ScreenBlock" type="CanvasLayer" parent="." unique_id=902645436]
+
+[node name="ColorRect" type="ColorRect" parent="ScreenBlock" unique_id=980275344]
+z_index = 100
+offset_left = -26.0
+offset_top = -14.0
+offset_right = 1168.0
+offset_bottom = 669.0
+color = Color(0, 0, 0, 1)

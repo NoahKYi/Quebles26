@@ -65,7 +65,7 @@ position = Vector2(-8, -49)
 scale = Vector2(0.5, 0.5)
 metadata/clue_number = 4
 
-[node name="Ui" parent="." unique_id=1002363222 instance=ExtResource("10_wkp8b")]
+[node name="UI" parent="." unique_id=1002363222 instance=ExtResource("10_wkp8b")]
 layer = 500
 
 [node name="ScreenBlock" type="CanvasLayer" parent="." unique_id=349775312]

@@ -9,11 +9,17 @@ var is_possessing = false
 var original_player_position = Vector2.ZERO
 var original_player_scale = Vector2.ZERO
 
+@onready var possess_ui = get_node("../../UI/Possess")
+
 func _ready():
 	var detection_area = $DetectionArea
 	detection_area.body_entered.connect(_on_clue_entered)
 	detection_area.body_exited.connect(_on_clue_exited)
 	original_player_scale = scale  # Store original scale
+	
+	# Hide the possess UI at start
+	if possess_ui:
+		possess_ui.visible = false
 
 func _physics_process(delta):
 	if is_possessing:
@@ -28,6 +34,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta):
+	# Update UI visibility based on nearby clues
+	if possess_ui:
+		print("yes")
+		possess_ui.visible = nearby_clues.size() > 0 and not is_possessing
+	
 	if Input.is_action_just_pressed("interact") and not is_possessing and nearby_clues.size() > 0:
 		possess_nearest_clue()
 

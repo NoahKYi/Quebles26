@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcsewv3e8grn0" path="res://scripts/clue.gd" id="1_rdfgf"]
 [ext_resource type="Texture2D" uid="uid://bo8c4c6q1rsak" path="res://Assets/Ninja Adventure - Asset Pack/Items/Potion/WaterPot.png" id="2_kaqtq"]
-[ext_resource type="AudioStream" uid="uid://wvbecrt7fdh1" path="res://Assets/Audio/impactWood_medium_002.ogg" id="3_kaqtq"]
+[ext_resource type="AudioStream" uid="uid://bxxj3t6budsir" path="res://Assets/Audio/impactPunch_heavy_001.ogg" id="3_kaqtq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odqx5"]
 
@@ -22,4 +22,4 @@ texture = ExtResource("2_kaqtq")
 
 [node name="Impact" type="AudioStreamPlayer2D" parent="." unique_id=1901966150]
 stream = ExtResource("3_kaqtq")
-volume_db = 5.0
+volume_db = 10.0
