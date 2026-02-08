@@ -28,7 +28,7 @@ func _ready() -> void:
 	astarGrid.update()
 
 func get_ideal_path(a: Vector2, b: Vector2):
-
+	
 	#convert input coordinates to local coordinate system to calculate path
 	print(to_local(b))
 	a = Vector2i((self.to_local(a).x / astarGrid.cell_size.x), (self.to_local(a).y / astarGrid.cell_size.y))
@@ -36,6 +36,13 @@ func get_ideal_path(a: Vector2, b: Vector2):
 	
 	print(a,b)
 	print("is in bounds?: " + str(astarGrid.is_in_bounds(a.x, a.y)) + " " + str(astarGrid.is_in_bounds(b.x, b.y)))
+	print("is solid?: " + str(astarGrid.is_point_solid(a)) + " " + str(astarGrid.is_point_solid(b)))
+	
+	#make wherever the NPC is walkable to prevent pathfinding issues
+	if (astarGrid.is_point_solid(a)):
+		astarGrid.set_point_solid(a, false)
+		astarGrid.update()
+		
 	#calculate path
 	var path = astarGrid.get_id_path(a,b, true)
 	#print(path)
