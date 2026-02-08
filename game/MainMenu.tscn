@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6mxbxiqvt37n" path="res://main_menu.gd" id="1_h7a2f"]
 [ext_resource type="PackedScene" uid="uid://n7dt6wbqnp1n" path="res://Map.tscn" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://b6jh2r60paamg" path="res://Screens/title.png" id="3_h7a2f"]
 
 [node name="MainMenu" type="Node2D" unique_id=1584798249]
 script = ExtResource("1_h7a2f")
@@ -25,11 +26,16 @@ offset_bottom = 107.0
 theme_override_font_sizes/font_size = 38
 text = "One More Chance"
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=503907975]
+position = Vector2(381.50003, 225.375)
+scale = Vector2(0.5507983, 0.5811772)
+texture = ExtResource("3_h7a2f")
+
 [node name="StartButton" type="Button" parent="." unique_id=792557677]
-offset_left = 211.0
-offset_top = 234.0
-offset_right = 529.0
-offset_bottom = 339.0
-text = "Start"
+offset_left = 461.0
+offset_top = 101.0
+offset_right = 743.0
+offset_bottom = 184.0
+flat = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

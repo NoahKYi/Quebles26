@@ -40,39 +40,39 @@ position = Vector2(32, 36)
 [node name="OtherInvestigationSpotsWithoutClues" type="Node2D" parent="." unique_id=1335766583]
 
 [node name="Sprite2D" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1119186105]
-position = Vector2(131, -77)
+position = Vector2(132, -87)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D2" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=166898394]
-position = Vector2(180, -77)
+position = Vector2(180, -88)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D3" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=422466731]
-position = Vector2(210, -76)
+position = Vector2(211, -87)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D4" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1147773214]
-position = Vector2(242, -76)
+position = Vector2(243, -86)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D5" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=241246935]
-position = Vector2(275, -78)
+position = Vector2(275, -87)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D6" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=449228670]
-position = Vector2(268, -44)
+position = Vector2(277, -46)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D7" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=870414823]
-position = Vector2(269, -8)
+position = Vector2(250, 11)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D8" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=799147864]
-position = Vector2(117, 65)
+position = Vector2(118, 55)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D9" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1210280012]
-position = Vector2(268, 66)
+position = Vector2(268, 55)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D10" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=957099646]
@@ -84,11 +84,11 @@ position = Vector2(354, 99)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D12" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=790916551]
-position = Vector2(325, 162)
+position = Vector2(324, 150)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D13" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1670041127]
-position = Vector2(353, 162)
+position = Vector2(354, 151)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D14" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=978625729]
@@ -104,75 +104,75 @@ position = Vector2(224, 256)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D17" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1139975791]
-position = Vector2(219, 226)
+position = Vector2(220, 215)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D18" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1089119277]
-position = Vector2(90, 150)
+position = Vector2(104, 150)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D19" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=24271143]
-position = Vector2(105, 175)
+position = Vector2(107, 185)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D20" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=368210293]
-position = Vector2(89, 175)
+position = Vector2(87, 187)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D21" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1406062866]
-position = Vector2(69, 175)
+position = Vector2(65, 185)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D22" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1316379804]
-position = Vector2(20, 179)
+position = Vector2(22, 167)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D23" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=621676517]
-position = Vector2(-3, 147)
+position = Vector2(5, 148)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D24" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1980384307]
-position = Vector2(-50, 157)
+position = Vector2(-60, 153)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D25" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=79644837]
-position = Vector2(-74, 178)
+position = Vector2(-75, 168)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D26" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1942701535]
-position = Vector2(-44, 100)
+position = Vector2(-43, 87)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D27" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1352002319]
-position = Vector2(-66, 112)
+position = Vector2(-77, 113)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D28" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1470228588]
-position = Vector2(-66, 46)
+position = Vector2(-73, 47)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D29" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=861846387]
-position = Vector2(-67, 18)
+position = Vector2(-75, 18)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D30" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1199865682]
-position = Vector2(-66, -12)
+position = Vector2(-77, -14)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D31" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=100324561]
-position = Vector2(-42, -12)
+position = Vector2(-43, -26)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D32" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2088268063]
-position = Vector2(-17, -15)
+position = Vector2(-11, -5)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D33" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=497033338]
-position = Vector2(26, -29)
+position = Vector2(28, -39)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D34" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1186935376]
-position = Vector2(60, -21)
+position = Vector2(58, -29)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D35" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=742083263]
@@ -180,15 +180,15 @@ position = Vector2(77, -40)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D36" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2125858509]
-position = Vector2(60, 19)
+position = Vector2(69, 19)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D37" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=550827352]
-position = Vector2(60, 40)
+position = Vector2(69, 44)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D38" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2016895711]
-position = Vector2(36, 11)
+position = Vector2(28, 13)
 texture = ExtResource("10_5vvyt")
 
 [node name="Clues" type="Node2D" parent="." unique_id=1531716243]
@@ -229,6 +229,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="UI" parent="." unique_id=1002363222 instance=ExtResource("10_wkp8b")]
 
-[node name="Noahscene" parent="." unique_id=278388439 instance=ExtResource("8_j4qnp")]
+[node name="player" parent="." unique_id=278388439 instance=ExtResource("8_j4qnp")]
 position = Vector2(37, 53)
 scale = Vector2(0.04, 0.04)
