@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://v8obrdlposyf"]
 
 [ext_resource type="PackedScene" uid="uid://k6k2xn0uu2sm" path="res://DialogueUI.tscn" id="1_b3bc3"]
-[ext_resource type="Script" uid="uid://brs3soa26k7jt" path="res://control.gd" id="2_3b2b5"]
+[ext_resource type="Script" uid="uid://brs3soa26k7jt" path="res://TimerCountdown.gd" id="2_3b2b5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3bc3"]
 bg_color = Color(1, 1, 1, 1)
@@ -68,9 +68,6 @@ offset_right = 218.0
 offset_bottom = 129.0
 script = ExtResource("2_3b2b5")
 
-[node name="Timer" type="Timer" parent="Countdown" unique_id=1190872785]
-autostart = true
-
 [node name="Label" type="Label" parent="Countdown" unique_id=70685848]
 layout_mode = 1
 anchors_preset = -1
@@ -80,5 +77,3 @@ theme_override_font_sizes/font_size = 56
 text = "3:00"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="timeout" from="Countdown/Timer" to="Countdown" method="_on_timeout"]

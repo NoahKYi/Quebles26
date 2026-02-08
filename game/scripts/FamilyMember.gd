@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var portrait: Texture2D
 @onready var navigation = self.get_node("../../Map/Floor/Walkable")
 @onready var investigator = self.get_node("../../Investigator")
+@onready var animated_sprite = $AnimatedSprite2D  # Reference to the AnimatedSprite2D
+
 var state = 0 #0 means should wander somewhere, 1 means walking to somewhere, 2 means arrived somewhere
 var path = []
 var nextRoutePoint = self.global_position
@@ -11,6 +13,7 @@ const speed = 15
 const threshold = 20
 var timerUntilWanderAgain = null;
 var positionToTellInvestigatorAbout = Vector2(0,0)
+var last_direction = Vector2.DOWN  # Track the last movement direction
 
 func _ready() -> void:
 	# Add to the family_members group so the clue can find this NPC
@@ -42,7 +45,11 @@ func _process(delta: float) -> void:
 			
 func _physics_process(delta: float) -> void:
 	if (state == 1 or state == 3): #only move if the family member should be moving to a new location
-		self.get_node("..").global_position += self.get_node("..").global_position.direction_to(nextRoutePoint) * speed * delta #move the family member a bit towards nextRoutePoint (based on speed and time between frames)
+		var direction = self.get_node("..").global_position.direction_to(nextRoutePoint)
+		self.get_node("..").global_position += direction * speed * delta #move the family member a bit towards nextRoutePoint (based on speed and time between frames)
+		
+		# Update animation based on movement direction
+		update_animation(direction)
 	
 		#print("nextRoutePoint: " + str(nextRoutePoint) + " distance: " + str(self.get_node("..").global_position.distance_to(nextRoutePoint)))
 		if (self.get_node("..").global_position.distance_to(nextRoutePoint) < threshold):
@@ -55,11 +62,35 @@ func _physics_process(delta: float) -> void:
 					path = path.slice(1)
 			else:
 				print("family member arrived")
+				animated_sprite.stop()  # Stop animation when arrived
 				if (state == 1):
 					state = 2
 					waitUntilWanderTimeout()
 				elif state == 3:
 					state = 4
+	else:
+		# Stop animation when not moving
+		animated_sprite.stop()
+
+func update_animation(direction: Vector2):
+	# Determine which direction is dominant
+	if abs(direction.x) > abs(direction.y):
+		# Horizontal movement
+		if direction.x > 0:
+			animated_sprite.play("walk_right")
+			last_direction = Vector2.RIGHT
+		else:
+			animated_sprite.play("walk_left")
+			last_direction = Vector2.LEFT
+	else:
+		# Vertical movement
+		if direction.y > 0:
+			animated_sprite.play("walk_down")
+			last_direction = Vector2.DOWN
+		else:
+			animated_sprite.play("walk_up")
+			last_direction = Vector2.UP
+
 #slowly wander around a and look for clues
 func wanderAroundHouse():
 	path = navigation.get_path_to_random_spot(self.get_node("..").global_position)
@@ -70,6 +101,7 @@ func wanderAroundHouse():
 		nextRoutePoint = self.get_node("..").global_position
 	#print("newPath: " + str(path))
 	state = 1
+	
 func waitUntilWanderTimeout():
 	timerUntilWanderAgain = Timer.new()
 	timerUntilWanderAgain.one_shot = true #don't reset the remaining time automatically once the timer finishes
