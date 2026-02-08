@@ -29,8 +29,9 @@ shape = SubResource("RectangleShape2D_r0ihr")
 [node name="Label" type="Label" parent="." unique_id=669114887]
 offset_left = -10.0
 offset_top = -19.0
-offset_right = 22.0
-offset_bottom = 4.0
+offset_right = 70.0
+offset_bottom = 21.0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("4_sieet")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 40
 text = "30"
