@@ -63,10 +63,21 @@ func populateInteractLocations():
 
 #slowly wander around a and look for clues
 func wanderAroundHouse():
-	var newPotentialSpot = interactLocations[randi() % len(interactLocations)]
-	while (newPotentialSpot in alreadyVisited): #loop until the new spot is different than the already visited spots
-		newPotentialSpot = interactLocations[randi() % len(interactLocations)]
-		print("attempting to locate new spot to investigate")
+	
+	var nonVisitedLocations = []
+	for spot in interactLocations:
+		if spot not in alreadyVisited:
+			nonVisitedLocations.append(spot)
+	
+	#determine the closeset next spot to search
+	print("attempting to locate new spot to investigate")
+	var newPotentialSpot = nonVisitedLocations[randi() % len(nonVisitedLocations)]
+	for spot in nonVisitedLocations:
+		if self.global_position.distance_to(spot[0]) < self.global_position.distance_to(newPotentialSpot[0]):
+			newPotentialSpot = spot
+	
+	
+	
 	destinationInteractLocation = newPotentialSpot
 	print("new spot: " + str(destinationInteractLocation))
 	print("old spots: " + str(alreadyVisited))
@@ -83,7 +94,7 @@ func wanderAroundHouse():
 func startInvestigating():
 	timerUntilDoneInvestigating = Timer.new()
 	timerUntilDoneInvestigating.one_shot = true #don't reset the remaining time automatically once the timer finishes
-	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 20) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
+	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 0) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
 	get_tree().root.add_child(timerUntilDoneInvestigating)
 	timerUntilDoneInvestigating.start()
 	

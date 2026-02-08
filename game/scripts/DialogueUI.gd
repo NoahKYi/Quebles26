@@ -55,5 +55,7 @@ func hide_dialogue():
 
 func _ready() -> void:
 	visible = false
+	# Wait one frame to ensure DialogueManager autoload is ready
+	await get_tree().process_frame
 	DialogueManager.dialogue_ui = self
 	print("DialogueUI ready")
