@@ -137,9 +137,7 @@ func tellInvestigator():
 	waitUntilWanderTimeout()
 	
 	
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		say("found_item")
+
 func respond_to_laptop_question():
 	say("son_respond_to_laptop_question")
 	investigator.investigate_laptop_again_son()

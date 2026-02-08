@@ -18,7 +18,7 @@ var destinationInteractLocation = null;
 var interactLocations = []
 var foundClues = []
 var alreadyVisited = []
-var threshold = 4 #distance the investigator must be within to the destination before the investigator stops moving
+var threshold = 15 #distance the investigator must be within to the destination before the investigator stops moving
 var timerUntilDoneInvestigating = null;
 var speed = 20
 var path = []
@@ -30,7 +30,7 @@ func _ready() -> void:
 	for node in get_node("/root/Main/OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
 		interactLocations.append([node.global_position, 0])
 	for node in get_node("/root/Main/Clues").get_children(): #add the actual clues and false clues
-		interactLocations.append([node.global_position, node.get_meta("clue_number")])
+		interactLocations.append([node.get_node("TargetSpot").global_position, node.get_meta("clue_number")])
 
 func _process(_delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
@@ -100,7 +100,7 @@ func _physics_process(delta: float) -> void:
 				elif state == 3: #arrived at location of sound, now go to the closest investigation spot
 					state = 0
 				elif state == 5:
-					if (self.global_position.distance_to(daughter.global_position) < threshold):
+					if (self.global_position.distance_to(daughter.global_position) > 40):
 						ask_daughter_about_journal() #the daughter moved, go to their new position
 					else:
 						say("question_daugher_about_journal")
@@ -216,11 +216,11 @@ func playerWins():
 	print("Player won")
 	pass
 func ask_daughter_about_journal():
-	state = 5
+	
 	print("going to ask daughter about journal")
 	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
 	path = navigation.get_ideal_path(self.global_position, daughter.global_position)
-
+	state = 5
 	print(path)
 	if (len(path)>0):
 		nextRoutePoint = path[0]
@@ -257,11 +257,18 @@ func ask_son_about_laptop():
 func investigate_laptop_again_son():
 	print("investigating laptop again at son's request")
 	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
-	path = navigation.get_ideal_path(self.global_position, son.global_position)
+	path = navigation.get_ideal_path(self.global_position, self.get_node("../Clues/ComputerWithPlantedSearchHistory").global_position)
 	if (len(path)>0):
 		nextRoutePoint = path[0]
 		
 	sonSaidInvestigateLaptopAgain = true
+	
+	var temp = []
+	for element in alreadyVisited: #remove the laptop from already visited, so that it gets visited again
+		if element[1] != 4:
+			temp.append(element)
+	alreadyVisited=temp
+	
 	state = 13
 func investigate_sound(position: Vector2):
 	say("i_will_go_investigate")
