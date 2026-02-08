@@ -3,6 +3,9 @@ extends Node2D
 @onready var clueNumber = self.get_meta("clue_number")
 @onready var nextClue = self.get_meta("next_clue")
 @onready var navigation = self.get_node("../Map/Floor/Walkable")
+@onready var daughter = self.get_node("../Daughter/CharacterBody2D")
+@export var display_name: String
+@export var portrait: Texture2D
 var state = 0 #0 means the investigator should go to a new location, 1 means traveling to a new location, 2 means investigating a location
 var timeUntilDoneInvestigatingThisSpot = 0;
 var destinationInteractLocation = null;
@@ -39,16 +42,25 @@ func _process(_delta: float) -> void:
 			#state is going to sound (told by NPC)
 			#handled by _physics_process()
 			pass
+		5:
+			#going to daughter to ask about journal
+			#handled by _physics_process
+			pass
+		7:
+			#going to investigate laptop after asked by daughter
+			#handled by _physics_process
+			pass
+		
 func _physics_process(delta: float) -> void:
-	if (state == 1 or state == 3): #only move if the investigator should be moving to a new location
+	if (state == 1 or state == 3 or state == 5 or state == 7): #only move if the investigator should be moving to a new location
 		self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
 	
 		#print("nextRoutePoint: " + str(nextRoutePoint))
 		if (self.global_position.distance_to(nextRoutePoint) < threshold):
 			#recalculate the path to the destination and set the next point as nextRoutePoint
 			
-			print("len(path): " + str(len(path)))
-			print(path)
+			#print("len(path): " + str(len(path)))
+			#print(path)
 			if (len(path) > 1):
 					nextRoutePoint = path[1]
 					path = path.slice(1)
@@ -59,9 +71,23 @@ func _physics_process(delta: float) -> void:
 					state = 2
 				elif state == 3: #arrived at location of sound, now go to the closest investigation spot
 					state = 0
+				elif state == 5:
+					if (self.global_position.distance_to(daughter.global_position) < threshold):
+						ask_daughter_about_journal() #the daughter moved, go to their new position
+					else:
+						say("question_daugher_about_journal")
+						daughter.respond_to_journal_question()
+				elif state == 7:
+					state = 0
 				startInvestigating()
 
-				
+func say(key: String):
+	print(DialogueLines)
+	if not DialogueLines.LINES.has(key):
+		return
+	print(DialogueLines.LINES[key])
+	DialogueManager.show(DialogueLines.LINES[key], portrait, display_name)
+	
 func populateInteractLocations():
 	for node in get_node("../OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
 		interactLocations.append([node.global_position, 0])
@@ -107,17 +133,34 @@ func startInvestigating():
 	timerUntilDoneInvestigating.start()
 	
 func investigate():
-	print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
+	#print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
 	if timerUntilDoneInvestigating.get_time_left() > 0:
 		#do nothing until the timer runs out
 		pass
 	else:
 		if destinationInteractLocation[1] != 0:
 			#found a clue (or false clue)
-			foundClues.push_back(destinationInteractLocation[1]) #add the found clue to the list of found clues
+			
 			alreadyVisited.append(destinationInteractLocation)
 			state = 0
-			print("found clue " + str(destinationInteractLocation[1]))
+			var clue_number = destinationInteractLocation[1]
+			print("found clue " + str(clue_number))
+			match clue_number:
+				1:
+					say("found_clue_1")
+				2:
+					say("found_clue_2")
+				3:
+					say("found_clue_3")
+					ask_daughter_about_journal()
+				4:
+					if (4 not in foundClues):
+						say("found_clue_4_again")
+						foundClues.push_back(5)
+					else:
+						say("found_clue_4")
+					
+			foundClues.push_back(destinationInteractLocation[1]) #add the found clue to the list of found clues
 			#TODO: actually do something once the investigator finds a clue
 			pass
 		else:
@@ -126,8 +169,25 @@ func investigate():
 			state = 0 #the investigator should go somewhere else
 			print("Didn't find a clue")
 	
+func ask_daughter_about_journal():
+	state = 5
+	print("going to ask daughter about journal")
+	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
+	path = navigation.get_ideal_path(self.global_position, daughter.global_position)
 
+	print(path)
+	nextRoutePoint = path[0]
+#go to a sound when told by an npc
+
+func investigate_laptop_after_daughter_request():
+	say("i_will_go_investigate_the_laptop")
+	print("going to investigate laptop")
+	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
+	path = navigation.get_ideal_path(self.global_position, self.get_node("../Clues/ComputerWithPlantedSearchHistory").global_position)
+	nextRoutePoint = path[0]
+	state = 7
 func investigate_sound(position: Vector2):
+	say("i_will_go_investigate")
 	print("going to investigate sound")
 	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
 	path = navigation.get_ideal_path(self.global_position, position)

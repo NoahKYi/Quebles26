@@ -42,10 +42,10 @@ func _process(delta: float) -> void:
 			
 func _physics_process(delta: float) -> void:
 	if (state == 1 or state == 3): #only move if the family member should be moving to a new location
-		self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the family member a bit towards nextRoutePoint (based on speed and time between frames)
+		self.get_node("..").global_position += self.get_node("..").global_position.direction_to(nextRoutePoint) * speed * delta #move the family member a bit towards nextRoutePoint (based on speed and time between frames)
 	
-		#print("nextRoutePoint: " + str(nextRoutePoint) + " distance: " + str(self.global_position.distance_to(nextRoutePoint)))
-		if (self.global_position.distance_to(nextRoutePoint) < threshold):
+		#print("nextRoutePoint: " + str(nextRoutePoint) + " distance: " + str(self.get_node("..").global_position.distance_to(nextRoutePoint)))
+		if (self.get_node("..").global_position.distance_to(nextRoutePoint) < threshold):
 			#recalculate the path to the destination and set the next point as nextRoutePoint
 			
 			#print("len(path): " + str(len(path)))
@@ -62,12 +62,12 @@ func _physics_process(delta: float) -> void:
 					state = 4
 #slowly wander around a and look for clues
 func wanderAroundHouse():
-	path = navigation.get_path_to_random_spot(self.global_position)
+	path = navigation.get_path_to_random_spot(self.get_node("..").global_position)
 	if (len(path)>0):
 		nextRoutePoint = path[0]
 		#print("length of family member " + get_node("..").name + " path is 0, this is not good, but it seems to work any way, fix if we have time")
 	else:
-		nextRoutePoint = self.global_position
+		nextRoutePoint = self.get_node("..").global_position
 	#print("newPath: " + str(path))
 	state = 1
 func waitUntilWanderTimeout():
@@ -88,12 +88,12 @@ func checkIfShouldWanderAgain():
 func walkToInvestigator(positionOfSound : Vector2):
 	positionToTellInvestigatorAbout = positionOfSound
 	
-	path = navigation.get_ideal_path(self.global_position, investigator.global_position)
+	path = navigation.get_ideal_path(self.get_node("..").global_position, investigator.global_position)
 	if (len(path)>0):
 		nextRoutePoint = path[0]
 		#print("length of family member " + get_node("..").name + " path is 0, this is not good, but it seems to work any way, fix if we have time")
 	else:
-		nextRoutePoint = self.global_position
+		nextRoutePoint = self.get_node("..").global_position
 	#print("newPath: " + str(path))
 	timerUntilWanderAgain=null #clear the wandering timer
 	state = 3
@@ -108,3 +108,15 @@ func tellInvestigator():
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		say("found_item")
+
+func respond_to_journal_question():
+	var found_clues = investigator.foundClues
+	if (4 not in found_clues):
+		say("daughter_respond_to_journal_question_computer_redirect")
+		investigator.investigate_laptop_after_daughter_request()
+	elif (2 not in found_clues):
+		say("daughter_respond_to_journal_question_will_redirect")
+		investigator.investigate_will_after_daughter_request()
+	else:
+		say("daughter_respond_to_journal_question_give_up")
+		#player wins
