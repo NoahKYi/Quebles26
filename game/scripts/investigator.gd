@@ -76,10 +76,10 @@ func _physics_process(delta: float) -> void:
 				startInvestigating()
 				
 func populateInteractLocations():
-	for node in get_node("../OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
+	for node in get_node("OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
 		interactLocations.append([node.global_position, 0])
 		
-	for node in get_node("../Clues").get_children(): #add the actual clues and false clues
+	for node in get_node("Clues").get_children(): #add the actual clues and false clues
 		interactLocations.append([node.global_position, node.get_meta("clue_number")])
 
 #slowly wander around a and look for clues
