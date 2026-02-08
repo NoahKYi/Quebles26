@@ -280,3 +280,7 @@ func investigate_sound(position: Vector2):
 
 func _on_main_ready() -> void:
 	path = navigation.get_ideal_path(self.global_position, destination)
+
+#func _input(event):
+#	if event.is_action_pressed("ui_accept"):
+#		say("daughter_guilty_and_tried_framing_son")

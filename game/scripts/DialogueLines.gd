@@ -19,7 +19,7 @@ const LINES := {
 	"i_will_go_investigate_the_will": "Ok, I will investigate the will",
 	"question_son_about_laptop": "Hey, there's a laptop with search history showing that you searched how to poison someone. What do you have to say?",
 	"son_respond_to_laptop_question": "I didn't search that. Could you investigate it again and double check?",
-	"daughter_guilty_and_tried_framing_son": "I believe I have solved the murder. The daughter is guilty, she wrote her plans in her journal and then tried to frame the son. The handwriting will have to be evaulated in court by I think I am done.",
+	"daughter_guilty_and_tried_framing_son": "I believe I have solved the murder. The daughter is guilty, she wrote her plans in her journal and then tried to frame the son. The handwriting will have to be evaluated in court.",
 
 
 }
