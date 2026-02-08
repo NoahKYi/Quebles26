@@ -20,12 +20,17 @@ var timerUntilDoneInvestigating = null;
 var speed = 20
 var path = []
 
-func _ready() -> void:
-	populateInteractLocations()
-	
+
 func _process(_delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
 	#roomNumber = currentRoom
+	
+	if timerUntilDoneInvestigating and timerUntilDoneInvestigating.time_left > 0:
+		var time_left = int(timerUntilDoneInvestigating.time_left)
+		var minutes = time_left / 60
+		var seconds = time_left % 60
+		$Label.text = "%02d:%02d" % [minutes, seconds]
+
 	
 	print("investigator state: " + str(state))
 	#logic for what the investigator should do
@@ -87,16 +92,10 @@ func say(key: String):
 		return
 	print(DialogueLines.LINES[key])
 	DialogueManager.show(DialogueLines.LINES[key], portrait, display_name)
-	
-func populateInteractLocations():
-	for node in get_node("../OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
-		interactLocations.append([node.global_position, 0])
-		
-	for node in get_node("../Clues").get_children(): #add the actual clues and false clues
-		interactLocations.append([node.global_position, node.get_meta("clue_number")])
 
-#slowly wander around a and look for clues
-func wanderAroundHouse():
+
+
+func wanderAroundHouse():#slowly wander around a and look for clues
 	
 	var nonVisitedLocations = []
 	for spot in interactLocations:
@@ -126,11 +125,12 @@ func wanderAroundHouse():
 	
 #start a timer so that the investigator will investigate until it ends
 func startInvestigating():
-	timerUntilDoneInvestigating = Timer.new()
+	timerUntilDoneInvestigating = Timer.new() # Time at single spot
 	timerUntilDoneInvestigating.one_shot = true #don't reset the remaining time automatically once the timer finishes
 	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 20) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
 	get_tree().root.add_child(timerUntilDoneInvestigating)
 	timerUntilDoneInvestigating.start()
+
 	
 func investigate():
 	#print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
@@ -196,3 +196,13 @@ func investigate_sound(position: Vector2):
 	nextRoutePoint = path[0]
 	state = 3
 	
+
+func _on_other_investigation_spots_without_clues_ready() -> void:
+	for node in get_node("./OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
+		interactLocations.append([node.global_position, 0])
+
+
+
+func _on_clues_ready() -> void:
+	for node in get_node("./Clues").get_children(): #add the actual clues and false clues
+		interactLocations.append([node.global_position, node.get_meta("clue_number")])

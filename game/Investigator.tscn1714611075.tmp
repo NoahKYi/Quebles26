@@ -215,6 +215,3 @@ texture = ExtResource("5_sb0uu")
 [node name="Sprite2D38" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=767532823]
 position = Vector2(28, 13)
 texture = ExtResource("5_sb0uu")
-
-[connection signal="ready" from="Clues" to="." method="_on_clues_ready"]
-[connection signal="ready" from="OtherInvestigationSpotsWithoutClues" to="." method="_on_other_investigation_spots_without_clues_ready"]
