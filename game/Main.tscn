@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cknm8ncryhn7x" path="res://NPCs/family_wife.tscn" id="6_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://da6qpp2nb8mdx" path="res://Investigator.tscn" id="7_c2ibq"]
 [ext_resource type="PackedScene" uid="uid://bfwav4omi04ro" path="res://Player.tscn" id="8_j4qnp"]
+[ext_resource type="PackedScene" uid="uid://c326xvikq65wr" path="res://Clue.tscn" id="9_03owx"]
 [ext_resource type="PackedScene" uid="uid://v8obrdlposyf" path="res://UI.tscn" id="10_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://bywyhav35a6kt" path="res://Assets/Ninja Adventure - Asset Pack/Items/Food/Nut.png" id="11_5vvyt"]
 
 [node name="Main" type="Node2D" unique_id=1274673833]
 script = ExtResource("1_20pc6")
@@ -40,155 +42,155 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1119186105]
 position = Vector2(132, -87)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D2" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=166898394]
 position = Vector2(180, -88)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D3" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=422466731]
 position = Vector2(211, -87)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D4" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1147773214]
 position = Vector2(243, -86)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D5" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=241246935]
 position = Vector2(275, -87)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D6" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=449228670]
 position = Vector2(277, -46)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D7" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=870414823]
 position = Vector2(244, 11)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D8" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=799147864]
 position = Vector2(118, 55)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D9" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1210280012]
 position = Vector2(268, 55)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D10" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=957099646]
 position = Vector2(324, 98)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D11" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=956484241]
 position = Vector2(354, 99)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D12" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=790916551]
 position = Vector2(324, 150)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D13" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1670041127]
 position = Vector2(354, 151)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D14" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=978625729]
 position = Vector2(366, 202)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D15" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=670316172]
 position = Vector2(365, 248)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D16" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1043363423]
 position = Vector2(224, 256)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D17" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1139975791]
 position = Vector2(220, 215)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D18" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1089119277]
 position = Vector2(104, 150)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D19" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=24271143]
 position = Vector2(107, 185)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D20" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=368210293]
 position = Vector2(87, 187)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D21" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1406062866]
 position = Vector2(65, 185)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D22" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1316379804]
 position = Vector2(22, 167)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D23" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=621676517]
 position = Vector2(0, 154)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D24" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1980384307]
 position = Vector2(-60, 153)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D25" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=79644837]
 position = Vector2(-75, 168)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D26" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1942701535]
 position = Vector2(-43, 87)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D27" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1352002319]
 position = Vector2(-77, 113)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D28" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1470228588]
 position = Vector2(-73, 47)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D29" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=861846387]
 position = Vector2(-75, 18)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D30" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1199865682]
 position = Vector2(-77, -14)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D31" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=100324561]
 position = Vector2(-43, -26)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D32" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2088268063]
 position = Vector2(-11, -5)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D33" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=497033338]
 position = Vector2(28, -39)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D34" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1186935376]
 position = Vector2(58, -29)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D35" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=742083263]
 position = Vector2(77, -40)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D36" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2125858509]
 position = Vector2(69, 19)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D37" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=550827352]
 position = Vector2(69, 44)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Sprite2D38" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2016895711]
 position = Vector2(28, 13)
-texture = ExtResource("10_5vvyt")
+texture = ExtResource("11_5vvyt")
 
 [node name="Clues" type="Node2D" parent="." unique_id=1531716243]
 
