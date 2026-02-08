@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c326xvikq65wr" path="res://Clue.tscn" id="9_03owx"]
 [ext_resource type="PackedScene" uid="uid://v8obrdlposyf" path="res://UI.tscn" id="10_wkp8b"]
 [ext_resource type="Texture2D" uid="uid://bywyhav35a6kt" path="res://Assets/Ninja Adventure - Asset Pack/Items/Food/Nut.png" id="11_5vvyt"]
+[ext_resource type="AudioStream" uid="uid://vmx5dydb7t56" path="res://Assets/story time.ogg" id="13_c6i3y"]
 
 [node name="Main" type="Node2D" unique_id=1274673833]
 script = ExtResource("1_20pc6")
@@ -245,5 +246,9 @@ color = Color(0, 0, 0, 1)
 [node name="player" parent="." unique_id=278388439 instance=ExtResource("8_j4qnp")]
 position = Vector2(37, 53)
 scale = Vector2(0.04, 0.04)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1863683139]
+stream = ExtResource("13_c6i3y")
+autoplay = true
 
 [connection signal="ready" from="." to="Investigator" method="_on_main_ready"]

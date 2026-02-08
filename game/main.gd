@@ -3,7 +3,7 @@ extends Node2D
 @onready var screen_block = $ScreenBlock
 @onready var screen_block_rect = $ScreenBlock/ColorRect  # or whatever the visual node is called
 
-var temp_skip = true
+var temp_skip = false
 
 func _ready() -> void:
 	screen_block.visible = true
@@ -14,14 +14,12 @@ func _ready() -> void:
 	await fade_out_screen_block()  # Fade out instead of instant hide
 
 func show_intro() -> void:
-	await DialogueManager.show("You’re dead. But you’re still here.", null, "???")
-	await DialogueManager.show("Your death wasn’t an accident.", null, "???")
-	await DialogueManager.show("Now you linger as a soul - unseen, unsettled, out of place.", null, "???")
-	await DialogueManager.show("You can slip through walls. You can possess objects.", null, "???")
-	await DialogueManager.show("When things shift, people notice. Something feels… out of place.", null, "???")
-	await DialogueManager.show("Not everything tells the truth. Some things are meant to mislead.", null, "???")
-	await DialogueManager.show("An investigator is searching. Guide them carefully.", null, "???")
-	await DialogueManager.show("SHIFT: pass through walls. Q: possess objects. E: interact.", null, "???")
+	await DialogueManager.show("Your daughter has killed you...", null, "???")
+	await DialogueManager.show("Now you are a ghost trying to help your family find out the truth.", null, "???")
+	await DialogueManager.show("Possess the clues and try to help your family alert the investigator.", null, "???")
+	await DialogueManager.show("The clues will point to the murderer. Avoid the false ones.", null, "???")
+	await DialogueManager.show("And hurry, the investigator will give up once the timer runs out.", null, "???")
+	await DialogueManager.show("Your energy is limited. Possess too much and you'll disappear forever.", null, "???")
 
 # Fade out the screen block
 func fade_out_screen_block() -> void:

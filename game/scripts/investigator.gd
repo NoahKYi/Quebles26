@@ -239,7 +239,8 @@ func investigate():
 
 func playerWins():
 	print("Player won")
-	pass
+	get_tree().change_scene_to_file("res://WinEnd.tscn")
+	
 func ask_daughter_about_journal():
 	
 	print("going to ask daughter about journal")
