@@ -51,9 +51,10 @@ func _process(_delta: float) -> void:
 		var t = int(timerUntilDoneInvestigating.time_left)
 		var minutes = t / 60
 		var seconds = t % 60
-		$Timer.text = "%02d:%02d" % [minutes, seconds]
+		$Label.text = "%02d:%02d" % [minutes, seconds]
 	else:
-		$Timer_label.text = ""  # hide when done
+		$Label.text = ""  # hide when done
+		pass
 
 
 func _physics_process(delta: float) -> void:
