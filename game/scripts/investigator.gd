@@ -20,13 +20,16 @@ var destinationInteractLocation = null;
 var interactLocations = []
 var foundClues = []
 var alreadyVisited = []
-var threshold = 15 #distance the investigator must be within to the destination before the investigator stops moving
+var threshold = 20 #distance the investigator must be within to the destination before the investigator stops moving
 var timerUntilDoneInvestigating = null;
 var speed = 20
 var path = []
 var daughterSaidInvestigateLaptop = false
 var daughterSaidInvestigateWill = false
 var sonSaidInvestigateLaptopAgain = false
+var foundMedicineBottle = false
+var foundJournal = false
+var foundWill = false
 
 func _ready() -> void:
 	for node in get_node("/root/Main/OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
@@ -184,13 +187,27 @@ func investigate():
 			print("found clue " + str(clue_number))
 			match clue_number:
 				1: #medicine bottle
-					say("found_clue_1")
+					foundMedicineBottle = true;
+					if (foundJournal):
+						say("found_clue_1_after_journal")
+						if (foundWill):
+							say("solved_murder_medicine_last")
+							playerWins()
+					else:
+						say("found_clue_1")
 				2: #will
+					foundWill = true
 					if (not daughterSaidInvestigateWill):
 						say("found_clue_2")
 					else:
-						say("found_clue_2_after_daughter_asked")
+						if (!foundMedicineBottle):
+							say("found_clue_2_after_daughter_asked_no_medicine_bottle")
+						else:
+							say("solved_murder_will_last")
+							playerWins()
+							
 				3: #journal
+					foundJournal = true
 					say("found_clue_3")
 					ask_daughter_about_journal()
 				4: #laptop
@@ -198,8 +215,12 @@ func investigate():
 						
 						foundClues.push_back(5)
 						if (daughterSaidInvestigateLaptop):
-							say("daughter_guilty_and_tried_framing_son")
-							playerWins()
+							
+							if (foundMedicineBottle):
+								say("daughter_guilty_and_tried_framing_son")
+								playerWins()
+							else:
+								say("daughter_guilty_and_tried_framing_son_but_no_death_weapon")
 						else:
 							say("found_clue_4_again")
 							
@@ -285,7 +306,9 @@ func investigate_sound(position: Vector2):
 		nextRoutePoint = path[0]
 	state = 3
 	
-
+func daughter_confessed():
+	say("solved_murder_journal_last")
+	playerWins()
 func _on_main_ready() -> void:
 	path = navigation.get_ideal_path(self.global_position, destination)
 
