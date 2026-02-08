@@ -4,9 +4,9 @@ extends Node2D
 @onready var nextClue = self.get_meta("next_clue")
 
 @onready var navigation = self.get_node("/root/Main/Map/Floor/Walkable")
-@onready var daughter = self.get_node("./Daughter/CharacterBody2D")
 @onready var clock = self.get_node("/root/UI/Countdown")
-@onready var son = self.get_node("../Son/CharacterBody2D")
+@onready var daughter = self.get_node("/root/Main/Daughter/CharacterBody2D")
+@onready var son = self.get_node("/root/Main/Son/CharacterBody2D")
 
 @export var display_name: String
 @export var portrait: Texture2D
@@ -27,6 +27,11 @@ var daughterSaidInvestigateLaptop = false
 var daughterSaidInvestigateWill = false
 var sonSaidInvestigateLaptopAgain = false
 
+func _ready() -> void:
+	for node in get_node("/root/Main/OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
+		interactLocations.append([node.global_position, 0])
+	for node in get_node("/root/Main/Clues").get_children(): #add the actual clues and false clues
+		interactLocations.append([node.global_position, node.get_meta("clue_number")])
 
 func _process(_delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
@@ -271,15 +276,6 @@ func investigate_sound(position: Vector2):
 		nextRoutePoint = path[0]
 	state = 3
 	
-
-func _on_other_investigation_spots_without_clues_ready() -> void:
-	for node in get_node("./OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
-		interactLocations.append([node.global_position, 0])
-
-func _on_clues_ready() -> void:
-	for node in get_node("./Clues").get_children(): #add the actual clues and false clues
-		interactLocations.append([node.global_position, node.get_meta("clue_number")])
-
 
 func _on_main_ready() -> void:
 	path = navigation.get_ideal_path(self.global_position, destination)
