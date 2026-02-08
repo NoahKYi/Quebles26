@@ -3,81 +3,86 @@ extends Node2D
 @onready var clueNumber = self.get_meta("clue_number")
 @onready var nextClue = self.get_meta("next_clue")
 @onready var navigation = self.get_node("../Map/Floor/Walkable")
-var currentRoomNumber = 1
 var state = 0 #0 means the investigator should go to a new location, 1 means traveling to a new location, 2 means investigating a location
 var timeUntilDoneInvestigatingThisSpot = 0;
 var destinationInteractLocation = null;
-var destination : Vector2 = Vector2(0,0) #coordinates to wherever the investigator is trying to move (updated by functions go wander around the rooms)
-var nextRoutePoint : Vector2 = self.position #next point along the route to destination generated using the AStarGrid2D in the Map scene
-#format for storing where the navigator can go in each room in the following format, also if the clue number is zero then there is nothing to find at that location {roomNumber1: [[Vector2(xCordOfInteractLocation, yCord), clueNumber], [next location], [third location], ...], roomNumber2: [...] ...}
-var interactLocations = {1: [[Vector2(100,100), 0], [Vector2(200,200), 2], [Vector2(200,150), 1]]}
+@onready var destination : Vector2 = self.global_position #coordinates to wherever the investigator is trying to move (updated by functions go wander around the rooms)
+@onready var nextRoutePoint : Vector2 = self.global_position #next point along the route to destination generated using the AStarGrid2D in the Map scene
+#format for storing where the navigator can go in the following format, also if the clue number is zero then there is nothing to find at that location[[Vector2(xCordOfInteractLocation, yCord), clueNumber], [next location], [third location]...]
+var interactLocations = []
 var foundClues = []
 var alreadyVisited = []
-var threshold = 5 #distance the investigator must be within to the destination before the investigator stops moving
+var threshold = 4 #distance the investigator must be within to the destination before the investigator stops moving
 var timerUntilDoneInvestigating = null;
-var speed = 10;
+var speed = 20
+var path = []
+
+func _ready() -> void:
+	populateInteractLocations()
+	
 func _process(_delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
 	#roomNumber = currentRoom
 	
-	
+	print("state: " + str(state))
 	#logic for what the investigator should do
 	match state:
 		0:
-			wanderAroundRoom()
+			wanderAroundHouse()
 		1:
-			goToTargetLocation()
+			#goToTargetLocation() #this is now handled in _physics_process()
+			pass
 		2:
 			investigate()
 			#do nothing until a timer runs out which will call a function to reveal the results of investigating a certain location (either will find nothing, a clue, or a false clue)
 
 func _physics_process(delta: float) -> void:
-	self.position += self.position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
+	self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
 	if (state == 1): #only move if the investigator should be moving to a new location
-		if (self.position.distance_to(nextRoutePoint) < threshold):
+		print("nextRoutePoint: " + str(nextRoutePoint))
+		if (self.global_position.distance_to(nextRoutePoint) < threshold):
 			#recalculate the path to the destination and set the next point as nextRoutePoint
-			var path = navigation.get_ideal_path(self.position, destination)
 			
+			print("len(path): " + str(len(path)))
+			print(path)
 			if (len(path) > 1):
-				nextRoutePoint = path[1]
+					nextRoutePoint = path[1]
+					path = path.slice(1)
 			else:
 				print("arrived")
 				alreadyVisited.push_back(destinationInteractLocation) #so that the investigator doesn't re-investigate the same spots
 				state = 2
 				startInvestigating()
-#navigate to a certain room when either the murderer or the player makes a noise
-func goToRoom(roomNumber : int):
-	
-	pass
-#slowly wander around a and look for clues
-func wanderAroundRoom():
-	#walk to a certain part of the room
-	var interactLocationsInThisRoom = interactLocations[currentRoomNumber]
+				
+func populateInteractLocations():
+	for node in get_node("../OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
+		interactLocations.append([node.global_position, 0])
+		
+	for node in get_node("../Clues").get_children(): #add the actual clues and false clues
+		interactLocations.append([node.global_position, node.get_meta("clue_number")])
 
-	var newPotentialSpot = interactLocationsInThisRoom[randi() % len(interactLocationsInThisRoom)]
+#slowly wander around a and look for clues
+func wanderAroundHouse():
+	var newPotentialSpot = interactLocations[randi() % len(interactLocations)]
 	while (newPotentialSpot in alreadyVisited): #loop until the new spot is different than the already visited spots
-		newPotentialSpot = interactLocationsInThisRoom[randi() % len(interactLocationsInThisRoom)]
+		newPotentialSpot = interactLocations[randi() % len(interactLocations)]
 		print("attempting to locate new spot to investigate")
 	destinationInteractLocation = newPotentialSpot
-		
+	print("new spot: " + str(destinationInteractLocation))
+	print("old spots: " + str(alreadyVisited))
 	destination = destinationInteractLocation[0] #go to the coords stored in the destinationInteractLocation (index 0 is the coords, index 1 is what clue is at that location (or lack of a clue indicated by value of 0))
 	#TODO: Add logic so the investigator doesn't revisit already visited locations
-	
+	path = navigation.get_ideal_path(self.global_position, destination)
 	state = 1
 	
 	
-#go to target destination as determined by destination variable
-func goToTargetLocation():
-	#TODO: Add code to actually move the invesitgator towards the target avoiding hitting walls or other objects
-	if self.global_position.distance_to(destination) < threshold && state == 1:
-		state = 2 #set state to investigating (stop at the location and investigate)
-		startInvestigating()
 		
 	
 	
 #start a timer so that the investigator will investigate until it ends
 func startInvestigating():
 	timerUntilDoneInvestigating = Timer.new()
+	timerUntilDoneInvestigating.one_shot = true #don't reset the remaining time automatically once the timer finishes
 	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 20) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
 	get_tree().root.add_child(timerUntilDoneInvestigating)
 	timerUntilDoneInvestigating.start()
