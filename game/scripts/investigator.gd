@@ -19,6 +19,8 @@ var threshold = 4 #distance the investigator must be within to the destination b
 var timerUntilDoneInvestigating = null;
 var speed = 20
 var path = []
+var daughterSaidInvestigateLaptop = false
+var daughterSaidInvestigateWill = false
 
 func _ready() -> void:
 	populateInteractLocations()
@@ -50,9 +52,13 @@ func _process(_delta: float) -> void:
 			#going to investigate laptop after asked by daughter
 			#handled by _physics_process
 			pass
+		9:
+			#going to investigate will after asked by daughter
+			#handled by _physics_process
+			pass
 		
 func _physics_process(delta: float) -> void:
-	if (state == 1 or state == 3 or state == 5 or state == 7): #only move if the investigator should be moving to a new location
+	if (state == 1 or state == 3 or state == 5 or state == 7 or state == 9): #only move if the investigator should be moving to a new location
 		self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
 	
 		#print("nextRoutePoint: " + str(nextRoutePoint))
@@ -78,6 +84,8 @@ func _physics_process(delta: float) -> void:
 						say("question_daugher_about_journal")
 						daughter.respond_to_journal_question()
 				elif state == 7:
+					state = 0
+				elif state == 9:
 					state = 0
 				startInvestigating()
 
@@ -146,14 +154,14 @@ func investigate():
 			var clue_number = destinationInteractLocation[1]
 			print("found clue " + str(clue_number))
 			match clue_number:
-				1:
+				1: #medicine bottle
 					say("found_clue_1")
-				2:
+				2: #will
 					say("found_clue_2")
-				3:
+				3: #journal
 					say("found_clue_3")
 					ask_daughter_about_journal()
-				4:
+				4: #laptop
 					if (4 not in foundClues):
 						say("found_clue_4_again")
 						foundClues.push_back(5)
@@ -176,7 +184,8 @@ func ask_daughter_about_journal():
 	path = navigation.get_ideal_path(self.global_position, daughter.global_position)
 
 	print(path)
-	nextRoutePoint = path[0]
+	if (len(path)>0):
+		nextRoutePoint = path[0]
 #go to a sound when told by an npc
 
 func investigate_laptop_after_daughter_request():
@@ -184,8 +193,22 @@ func investigate_laptop_after_daughter_request():
 	print("going to investigate laptop")
 	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
 	path = navigation.get_ideal_path(self.global_position, self.get_node("../Clues/ComputerWithPlantedSearchHistory").global_position)
-	nextRoutePoint = path[0]
+	if (len(path)>0):
+		nextRoutePoint = path[0]
 	state = 7
+	
+	daughterSaidInvestigateLaptop = true
+	
+func investigate_will_after_daughter_request():
+	say("i_will_go_investigate_the_will")
+	print("going to investigate laptop")
+	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
+	path = navigation.get_ideal_path(self.global_position, self.get_node("../Clues/InsurranceWillDocument").global_position)
+	if (len(path)>0):
+		nextRoutePoint = path[0]
+	state = 9
+	daughterSaidInvestigateWill = true
+	
 func investigate_sound(position: Vector2):
 	say("i_will_go_investigate")
 	print("going to investigate sound")
@@ -193,6 +216,7 @@ func investigate_sound(position: Vector2):
 	path = navigation.get_ideal_path(self.global_position, position)
 	print("pathToSound:")
 	print(path)
-	nextRoutePoint = path[0]
+	if (len(path)>0):
+		nextRoutePoint = path[0]
 	state = 3
 	
