@@ -1,6 +1,6 @@
 extends Control
 
-var time_left := 60.0 * 3 # seconds
+var time_left := 60.0 * 10 # seconds
 var game_over := false
 
 func _ready():
