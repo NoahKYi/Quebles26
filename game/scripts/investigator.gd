@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
 	#roomNumber = currentRoom
 	
-	print("state: " + str(state))
+	#print("state: " + str(state))
 	#logic for what the investigator should do
 	match state:
 		0:
@@ -37,9 +37,10 @@ func _process(_delta: float) -> void:
 			#do nothing until a timer runs out which will call a function to reveal the results of investigating a certain location (either will find nothing, a clue, or a false clue)
 
 func _physics_process(delta: float) -> void:
-	self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
 	if (state == 1): #only move if the investigator should be moving to a new location
-		print("nextRoutePoint: " + str(nextRoutePoint))
+		self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
+	
+		#print("nextRoutePoint: " + str(nextRoutePoint))
 		if (self.global_position.distance_to(nextRoutePoint) < threshold):
 			#recalculate the path to the destination and set the next point as nextRoutePoint
 			
@@ -53,6 +54,7 @@ func _physics_process(delta: float) -> void:
 				alreadyVisited.push_back(destinationInteractLocation) #so that the investigator doesn't re-investigate the same spots
 				state = 2
 				startInvestigating()
+
 				
 func populateInteractLocations():
 	for node in get_node("../OtherInvestigationSpotsWithoutClues").get_children(): #add the spots where the investigator finds nothing
@@ -82,7 +84,6 @@ func wanderAroundHouse():
 	print("new spot: " + str(destinationInteractLocation))
 	print("old spots: " + str(alreadyVisited))
 	destination = destinationInteractLocation[0] #go to the coords stored in the destinationInteractLocation (index 0 is the coords, index 1 is what clue is at that location (or lack of a clue indicated by value of 0))
-	#TODO: Add logic so the investigator doesn't revisit already visited locations
 	path = navigation.get_ideal_path(self.global_position, destination)
 	state = 1
 	
@@ -94,7 +95,7 @@ func wanderAroundHouse():
 func startInvestigating():
 	timerUntilDoneInvestigating = Timer.new()
 	timerUntilDoneInvestigating.one_shot = true #don't reset the remaining time automatically once the timer finishes
-	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 0) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
+	timerUntilDoneInvestigating.set_wait_time(randi() % 10 + 20) #set the time until the investigator is done investigating a spot to a random amount between 20-30 seconds
 	get_tree().root.add_child(timerUntilDoneInvestigating)
 	timerUntilDoneInvestigating.start()
 	
