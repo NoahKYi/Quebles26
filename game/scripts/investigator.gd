@@ -100,7 +100,7 @@ func startInvestigating():
 	timerUntilDoneInvestigating.start()
 	
 func investigate():
-	print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
+	#print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
 	if timerUntilDoneInvestigating.get_time_left() > 0:
 		#do nothing until the timer runs out
 		pass

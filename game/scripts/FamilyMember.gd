@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 					nextRoutePoint = path[1]
 					path = path.slice(1)
 			else:
-				print("arrived")
+				print("family member arrived")
 				state = 2
 				waitUntilWanderTimeout()
 #slowly wander around a and look for clues
