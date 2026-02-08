@@ -140,7 +140,9 @@ func tellInvestigator():
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		say("found_item")
-
+func respond_to_laptop_question():
+	say("son_respond_to_laptop_question")
+	investigator.investigate_laptop_again_son()
 func respond_to_journal_question():
 	var found_clues = investigator.foundClues
 	if (4 not in found_clues):
