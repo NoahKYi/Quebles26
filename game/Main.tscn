@@ -65,7 +65,7 @@ position = Vector2(277, -46)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D7" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=870414823]
-position = Vector2(250, 11)
+position = Vector2(244, 11)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D8" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=799147864]
@@ -129,7 +129,7 @@ position = Vector2(22, 167)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D23" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=621676517]
-position = Vector2(5, 148)
+position = Vector2(0, 154)
 texture = ExtResource("10_5vvyt")
 
 [node name="Sprite2D24" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1980384307]

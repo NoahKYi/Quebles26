@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	#figure out what room the investigator is currently in, can place area2Ds around the map and check if the investigator is overlapping one of them to determine the room
 	#roomNumber = currentRoom
 	
-	#print("state: " + str(state))
+	print("investigator state: " + str(state))
 	#logic for what the investigator should do
 	match state:
 		0:
@@ -35,9 +35,12 @@ func _process(_delta: float) -> void:
 		2:
 			investigate()
 			#do nothing until a timer runs out which will call a function to reveal the results of investigating a certain location (either will find nothing, a clue, or a false clue)
-
+		3:
+			#state is going to sound (told by NPC)
+			#handled by _physics_process()
+			pass
 func _physics_process(delta: float) -> void:
-	if (state == 1): #only move if the investigator should be moving to a new location
+	if (state == 1 or state == 3): #only move if the investigator should be moving to a new location
 		self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
 	
 		#print("nextRoutePoint: " + str(nextRoutePoint))
@@ -51,8 +54,11 @@ func _physics_process(delta: float) -> void:
 					path = path.slice(1)
 			else:
 				print("arrived")
-				alreadyVisited.push_back(destinationInteractLocation) #so that the investigator doesn't re-investigate the same spots
-				state = 2
+				
+				if (state == 1): #arrived at investigation spot, start investigating
+					state = 2
+				elif state == 3: #arrived at location of sound, now go to the closest investigation spot
+					state = 0
 				startInvestigating()
 
 				
@@ -85,6 +91,7 @@ func wanderAroundHouse():
 	print("old spots: " + str(alreadyVisited))
 	destination = destinationInteractLocation[0] #go to the coords stored in the destinationInteractLocation (index 0 is the coords, index 1 is what clue is at that location (or lack of a clue indicated by value of 0))
 	path = navigation.get_ideal_path(self.global_position, destination)
+
 	state = 1
 	
 	
@@ -100,7 +107,7 @@ func startInvestigating():
 	timerUntilDoneInvestigating.start()
 	
 func investigate():
-	#print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
+	print("investigating for " + str(timerUntilDoneInvestigating.get_time_left()) + " more seconds")
 	if timerUntilDoneInvestigating.get_time_left() > 0:
 		#do nothing until the timer runs out
 		pass
@@ -108,6 +115,7 @@ func investigate():
 		if destinationInteractLocation[1] != 0:
 			#found a clue (or false clue)
 			foundClues.push_back(destinationInteractLocation[1]) #add the found clue to the list of found clues
+			alreadyVisited.append(destinationInteractLocation)
 			state = 0
 			print("found clue " + str(destinationInteractLocation[1]))
 			#TODO: actually do something once the investigator finds a clue
@@ -119,4 +127,12 @@ func investigate():
 			print("Didn't find a clue")
 	
 
-			
+func investigate_sound(position: Vector2):
+	print("going to investigate sound")
+	timerUntilDoneInvestigating = null #clear investigation timer (if the investigator was investigating they should immeditely go to this new position)
+	path = navigation.get_ideal_path(self.global_position, position)
+	print("pathToSound:")
+	print(path)
+	nextRoutePoint = path[0]
+	state = 3
+	

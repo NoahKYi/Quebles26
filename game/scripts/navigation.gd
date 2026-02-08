@@ -34,8 +34,8 @@ func get_ideal_path(a: Vector2, b: Vector2):
 	a = Vector2i((self.to_local(a).x / astarGrid.cell_size.x), (self.to_local(a).y / astarGrid.cell_size.y))
 	b = Vector2i((self.to_local(b).x / astarGrid.cell_size.x), (self.to_local(b).y / astarGrid.cell_size.y))
 	
-	#print(a,b)
-	#print("is in bounds?: " + str(astarGrid.is_in_bounds(a.x, a.y)) + " " + str(astarGrid.is_in_bounds(b.x, b.y)))
+	print(a,b)
+	print("is in bounds?: " + str(astarGrid.is_in_bounds(a.x, a.y)) + " " + str(astarGrid.is_in_bounds(b.x, b.y)))
 	#calculate path
 	var path = astarGrid.get_id_path(a,b, true)
 	#print(path)
