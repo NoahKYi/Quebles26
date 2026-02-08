@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://da6qpp2nb8mdx"]
+
+[ext_resource type="Script" uid="uid://c7lr7edo8rp3j" path="res://scripts/investigator.gd" id="1_e0kx2"]
+[ext_resource type="SpriteFrames" uid="uid://dgvm0mxy10s8k" path="res://anim_frames/investigator_frames.tres" id="2_e0kx2"]
+[ext_resource type="Texture2D" uid="uid://5hn8mf0km4gw" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Investigator/Faceset.png" id="2_r0ihr"]
+[ext_resource type="PackedScene" uid="uid://c326xvikq65wr" path="res://Clue.tscn" id="4_sieet"]
+[ext_resource type="Texture2D" uid="uid://bywyhav35a6kt" path="res://Assets/Ninja Adventure - Asset Pack/Items/Food/Nut.png" id="5_sb0uu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0ihr"]
+size = Vector2(16, 16)
+
+[node name="Investigator" type="Node2D" unique_id=1354331390]
+script = ExtResource("1_e0kx2")
+display_name = "Investigator"
+portrait = ExtResource("2_r0ihr")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=268650183]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=255044026]
+sprite_frames = ExtResource("2_e0kx2")
+animation = &"walk_down"
+frame = 1
+frame_progress = 0.41771325
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2072105956]
+shape = SubResource("RectangleShape2D_r0ihr")
+
+[node name="Timer" type="Timer" parent="." unique_id=1521502278]
+
+[node name="Label" type="Label" parent="." unique_id=669114887]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -1.0
+text = "3:00"
+
+[node name="Clues" type="Node2D" parent="." unique_id=1210563993]
+position = Vector2(-53, -109)
+
+[node name="EmptyMedicationBottle" parent="Clues" unique_id=1541945220 instance=ExtResource("4_sieet")]
+position = Vector2(277, 256)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://ecd88ux7acmu"
+metadata/clue_number = 1
+
+[node name="InsurranceWillDocument" parent="Clues" unique_id=968803983 instance=ExtResource("4_sieet")]
+position = Vector2(300, 77)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://bmu4ohdsjdu1x"
+metadata/clue_number = 2
+
+[node name="Journal" parent="Clues" unique_id=606713682 instance=ExtResource("4_sieet")]
+position = Vector2(108, -45)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://dvlk2x6p48l3j"
+metadata/clue_number = 3
+
+[node name="ComputerWithPlantedSearchHistory" parent="Clues" unique_id=806335894 instance=ExtResource("4_sieet")]
+position = Vector2(-8, -49)
+scale = Vector2(0.5, 0.5)
+metadata/clue_number = 4
+
+[node name="OtherInvestigationSpotsWithoutClues" type="Node2D" parent="." unique_id=2099422338]
+visible = false
+position = Vector2(-53, -109)
+
+[node name="Sprite2D" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1009135981]
+position = Vector2(132, -87)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1117275553]
+position = Vector2(180, -88)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=110679476]
+position = Vector2(211, -87)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=991344949]
+position = Vector2(243, -86)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D5" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1056593595]
+position = Vector2(275, -87)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D6" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1225197588]
+position = Vector2(277, -46)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D7" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2083399637]
+position = Vector2(244, 11)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D8" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=812261529]
+position = Vector2(118, 55)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D9" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1000050779]
+position = Vector2(268, 55)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D10" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1818815977]
+position = Vector2(324, 98)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D11" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2116951476]
+position = Vector2(354, 99)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D12" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1344434567]
+position = Vector2(324, 150)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D13" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1843054177]
+position = Vector2(354, 151)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D14" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=731082652]
+position = Vector2(366, 202)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D15" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=452225829]
+position = Vector2(365, 248)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D16" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1939138986]
+position = Vector2(224, 256)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D17" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1297625459]
+position = Vector2(220, 215)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D18" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1173235094]
+position = Vector2(104, 150)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D19" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=954016258]
+position = Vector2(107, 185)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D20" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=872656399]
+position = Vector2(87, 187)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D21" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2017647069]
+position = Vector2(65, 185)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D22" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1030405483]
+position = Vector2(22, 167)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D23" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1527825061]
+position = Vector2(0, 154)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D24" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1453707536]
+position = Vector2(-60, 153)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D25" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1415219750]
+position = Vector2(-75, 168)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D26" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=2079792019]
+position = Vector2(-43, 87)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D27" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1833871021]
+position = Vector2(-77, 113)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D28" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1854154837]
+position = Vector2(-73, 47)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D29" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=395982518]
+position = Vector2(-75, 18)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D30" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1575242839]
+position = Vector2(-77, -14)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D31" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1315141249]
+position = Vector2(-43, -26)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D32" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1468951752]
+position = Vector2(-11, -5)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D33" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1909142155]
+position = Vector2(28, -39)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D34" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=906324763]
+position = Vector2(58, -29)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D35" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=242225315]
+position = Vector2(77, -40)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D36" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1321128739]
+position = Vector2(69, 19)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D37" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=1583640256]
+position = Vector2(69, 44)
+texture = ExtResource("5_sb0uu")
+
+[node name="Sprite2D38" type="Sprite2D" parent="OtherInvestigationSpotsWithoutClues" unique_id=767532823]
+position = Vector2(28, 13)
+texture = ExtResource("5_sb0uu")

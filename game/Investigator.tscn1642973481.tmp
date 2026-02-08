@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c7lr7edo8rp3j" path="res://scripts/investigator.gd" id="1_e0kx2"]
 [ext_resource type="SpriteFrames" uid="uid://dgvm0mxy10s8k" path="res://anim_frames/investigator_frames.tres" id="2_e0kx2"]
 [ext_resource type="Texture2D" uid="uid://5hn8mf0km4gw" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Investigator/Faceset.png" id="2_r0ihr"]
-[ext_resource type="FontFile" uid="uid://d3mw54fbluh83" path="res://Assets/PixelOperator8-Bold.ttf" id="4_sieet"]
+[ext_resource type="PackedScene" uid="uid://c326xvikq65wr" path="res://Clue.tscn" id="4_sieet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0ihr"]
 size = Vector2(16, 16)
@@ -27,10 +27,34 @@ shape = SubResource("RectangleShape2D_r0ihr")
 [node name="Timer" type="Timer" parent="." unique_id=1521502278]
 
 [node name="Label" type="Label" parent="." unique_id=669114887]
-offset_left = -10.0
-offset_top = -19.0
-offset_right = 22.0
-offset_bottom = 4.0
-theme_override_fonts/font = ExtResource("4_sieet")
-theme_override_font_sizes/font_size = 10
-text = "30"
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -1.0
+text = "3:00"
+
+[node name="Clues" type="Node2D" parent="." unique_id=1210563993]
+position = Vector2(-53, -109)
+
+[node name="EmptyMedicationBottle" parent="Clues" unique_id=1541945220 instance=ExtResource("4_sieet")]
+position = Vector2(277, 256)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://ecd88ux7acmu"
+metadata/clue_number = 1
+
+[node name="InsurranceWillDocument" parent="Clues" unique_id=968803983 instance=ExtResource("4_sieet")]
+position = Vector2(300, 77)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://bmu4ohdsjdu1x"
+metadata/clue_number = 2
+
+[node name="Journal" parent="Clues" unique_id=606713682 instance=ExtResource("4_sieet")]
+position = Vector2(108, -45)
+scale = Vector2(0.5, 0.5)
+metadata/sprite_image = "uid://dvlk2x6p48l3j"
+metadata/clue_number = 3
+
+[node name="ComputerWithPlantedSearchHistory" parent="Clues" unique_id=806335894 instance=ExtResource("4_sieet")]
+position = Vector2(-8, -49)
+scale = Vector2(0.5, 0.5)
+metadata/clue_number = 4
