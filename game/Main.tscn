@@ -36,10 +36,6 @@ position = Vector2(-41, 19)
 [node name="Investigator" parent="." unique_id=1354331390 instance=ExtResource("7_c2ibq")]
 position = Vector2(32, 36)
 
-[node name="Player" parent="." unique_id=278388439 instance=ExtResource("8_j4qnp")]
-position = Vector2(19, 14.999998)
-scale = Vector2(0.04, 0.04)
-
 [node name="Clues" type="Node2D" parent="." unique_id=1531716243]
 
 [node name="EmptyMedicationBottle" parent="Clues" unique_id=1541945220 instance=ExtResource("9_03owx")]
@@ -65,9 +61,6 @@ position = Vector2(-8, -49)
 scale = Vector2(0.5, 0.5)
 metadata/clue_number = 4
 
-[node name="UI" parent="." unique_id=1002363222 instance=ExtResource("10_wkp8b")]
-layer = 500
-
 [node name="ScreenBlock" type="CanvasLayer" parent="." unique_id=349775312]
 visible = false
 
@@ -78,3 +71,9 @@ offset_top = -14.0
 offset_right = 1168.0
 offset_bottom = 669.0
 color = Color(0, 0, 0, 1)
+
+[node name="UI" parent="." unique_id=1002363222 instance=ExtResource("10_wkp8b")]
+
+[node name="Noahscene" parent="." unique_id=278388439 instance=ExtResource("8_j4qnp")]
+position = Vector2(37, 53)
+scale = Vector2(0.04, 0.04)

@@ -8,7 +8,7 @@ func _ready() -> void:
 	add_to_group("family_members")
 
 func say(key: String):
-	print("test")
+	print(DialogueLines)
 	if not DialogueLines.LINES.has(key):
 		return
 	print(DialogueLines.LINES[key])
