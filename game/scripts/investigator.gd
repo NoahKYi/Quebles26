@@ -157,7 +157,10 @@ func investigate():
 				1: #medicine bottle
 					say("found_clue_1")
 				2: #will
-					say("found_clue_2")
+					if (not daughterSaidInvestigateWill):
+						say("found_clue_2")
+					else:
+						say("found_clue_2_after_daughter_asked")
 				3: #journal
 					say("found_clue_3")
 					ask_daughter_about_journal()
