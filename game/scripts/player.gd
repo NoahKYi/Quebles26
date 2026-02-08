@@ -36,7 +36,7 @@ func _physics_process(delta):
 func _process(delta):
 	# Update UI visibility based on nearby clues
 	if possess_ui:
-		print("yes")
+		#print("yes")
 		possess_ui.visible = nearby_clues.size() > 0 and not is_possessing
 	
 	if Input.is_action_just_pressed("interact") and not is_possessing and nearby_clues.size() > 0:

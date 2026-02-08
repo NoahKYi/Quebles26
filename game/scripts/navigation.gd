@@ -56,7 +56,7 @@ func get_path_to_random_spot(a: Vector2): #a is from position
 	var b = randomCell
 	
 	a = Vector2i((self.to_local(a).x / astarGrid.cell_size.x), (self.to_local(a).y / astarGrid.cell_size.y))
-	b = Vector2i((self.to_local(b).x / astarGrid.cell_size.x), (self.to_local(b).y / astarGrid.cell_size.y))
+	#b is already the id of a cell and doesn't need to be converted from global coordinates to astargrid id coordinates
 	
 	#print(a,b)
 	#print("is in bounds?: " + str(astarGrid.is_in_bounds(a.x, a.y)) + " " + str(astarGrid.is_in_bounds(b.x, b.y)))

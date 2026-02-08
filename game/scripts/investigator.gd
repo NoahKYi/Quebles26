@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	if (state == 1): #only move if the investigator should be moving to a new location
 		self.global_position += self.global_position.direction_to(nextRoutePoint) * speed * delta #move the player a bit towards nextRoutePoint (based on speed and time between frames)
 	
-		print("nextRoutePoint: " + str(nextRoutePoint))
+		#print("nextRoutePoint: " + str(nextRoutePoint))
 		if (self.global_position.distance_to(nextRoutePoint) < threshold):
 			#recalculate the path to the destination and set the next point as nextRoutePoint
 			

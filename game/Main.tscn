@@ -23,19 +23,19 @@ position = Vector2(-92, -55)
 position = Vector2(35, -13)
 
 [node name="Grandma" parent="." unique_id=1239262848 instance=ExtResource("3_wkp8b")]
-position = Vector2(-38, -15)
+position = Vector2(-27, 165)
 
 [node name="Grandpa" parent="." unique_id=181841448 instance=ExtResource("4_20pc6")]
-position = Vector2(113, -22)
+position = Vector2(158, -8)
 
 [node name="Son" parent="." unique_id=1648765736 instance=ExtResource("5_5vvyt")]
-position = Vector2(-12, 23)
+position = Vector2(255, 152)
 
 [node name="Wife" parent="." unique_id=416022874 instance=ExtResource("6_c6i3y")]
 position = Vector2(-41, 19)
 
 [node name="Investigator" parent="." unique_id=1354331390 instance=ExtResource("7_c2ibq")]
-position = Vector2(32, 36)
+position = Vector2(53, 109)
 
 [node name="OtherInvestigationSpotsWithoutClues" type="Node2D" parent="." unique_id=1335766583]
 visible = false
