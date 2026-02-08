@@ -195,7 +195,7 @@ texture = ExtResource("10_5vvyt")
 [node name="Clues" type="Node2D" parent="." unique_id=1531716243]
 
 [node name="EmptyMedicationBottle" parent="Clues" unique_id=1541945220 instance=ExtResource("9_03owx")]
-position = Vector2(277, 256)
+position = Vector2(-3, -32)
 scale = Vector2(0.5, 0.5)
 metadata/sprite_image = "uid://ecd88ux7acmu"
 metadata/clue_number = 1
@@ -213,8 +213,9 @@ metadata/sprite_image = "uid://dvlk2x6p48l3j"
 metadata/clue_number = 3
 
 [node name="ComputerWithPlantedSearchHistory" parent="Clues" unique_id=1939759915 instance=ExtResource("9_03owx")]
-position = Vector2(-8, -49)
-scale = Vector2(0.5, 0.5)
+position = Vector2(293, 211)
+scale = Vector2(0.25, 0.25)
+metadata/sprite_image = "uid://c8g0omgf0vc6x"
 metadata/clue_number = 4
 
 [node name="ScreenBlock" type="CanvasLayer" parent="." unique_id=349775312]
