@@ -5,7 +5,6 @@ Theme: **Out of Place**<br>
 
 <img width="1625" height="433" alt="Screenshot from 2026-02-08 17-51-42" src="https://github.com/user-attachments/assets/dd40499c-9e48-411f-aeb1-7a1155eaf900" />
 
-
 ## ❓ Description
 Your daughter has **killed** you.<Br><Br>
 Now you are a ghost trying to help your family find out the truth.<Br><Br>
@@ -21,5 +20,10 @@ Your energy is **limited**. Possess too much and you’ll **disappear forever**.
 WASD/Arrow Keys: Move player<br>
 E: Possess items
 
+## ▶️ Play here:
+[![Play One More Chance](https://github.com/user-attachments/assets/f6f63c94-42fc-4163-8eb7-575994dadfd2)](https://zandercoffman.itch.io/one-more-chance)
+
 ## 📝 Licenses
 Please see LICENSE.md
+
+> Made with ❤️ by Noah Yi, Daniel Briggs, Tristan Itoh, and Zander Coffman
