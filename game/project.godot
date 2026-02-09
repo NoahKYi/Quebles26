@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 DialogueManager="*uid://c2g5tphx41xk3"
 DialogueLines="*uid://cbhjw2ij5qdkq"
 
+[display]
+
+window/size/mode=3
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
